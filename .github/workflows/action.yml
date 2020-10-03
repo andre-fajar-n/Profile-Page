@@ -19,6 +19,8 @@ jobs:
       run: npm install
     - name: Build page
       run: npm run build
+    - name: Checkout code
+      uses: actions/checkout@v2
     - name: Deploy to gh-pages
       # uses: actions/checkout@v2
       uses: andre-fajar-n/Profile-Page@master
