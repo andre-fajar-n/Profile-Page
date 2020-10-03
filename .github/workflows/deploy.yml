@@ -20,7 +20,7 @@ jobs:
     - name: Build page
       run: npm run build
     - name: Deploy to gh-pages
-      uses: Profile-Page/gh-pages@v3
+      uses: andre-fajar-n/Profile-Page@gh-pages
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         publish_dir: ./build
