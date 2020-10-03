@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Component } from "react";
 import Skills from "../components/Skills";
-import Education from "../components/Education";
+import Resume from "../components/Resume";
 import Portfolio from "../components/Portfolio";
 import Experience from "../components/Experience";
 import ListEducation from "../data/Education";
@@ -10,6 +10,9 @@ import WorkExperience from "../data/WorkExperience";
 
 class Home extends Component {
   render() {
+    const listEducation = ListEducation;
+    const listExperience = WorkExperience;
+
     return (
       <Fragment>
         {/* START NAVBAR */}
@@ -24,8 +27,9 @@ class Home extends Component {
               <ul className="navbar-nav">
                 <li className="nav-item"><a className="nav-link" href="#section-home">Home</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-about">About</a></li>
-                <li className="nav-item"><a className="nav-link" href="#section-portfolio">Portfolio</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-resume">Resume</a></li>
+                <li className="nav-item"><a className="nav-link" href="#section-skills">Skills</a></li>
+                <li className="nav-item"><a className="nav-link" href="#section-portfolio">Portfolio</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-contact">Contact</a></li>
               </ul>
             </div>
@@ -201,6 +205,20 @@ class Home extends Component {
         </section>
         {/* END PORTFOLIO */}
 
+        {/* START SKILLS */}
+        <section className="site-section" id="section-skills">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12 mb-5">
+                <div className="section-heading text-center">
+                  <h2>My <strong>Skills</strong></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* END SKILLS */}
+
         {/* START RESUME */}
         <section className="site-section " id="section-resume">
           <div className="container">
@@ -210,69 +228,21 @@ class Home extends Component {
                   <h2>My <strong>Resume</strong></h2>
                 </div>
               </div>
+
+              {/* EDUCATION */}
               <div className="col-md-6">
                 <h2 className="mb-5">Education</h2>
-                <div className="resume-item mb-4">
-                  <span className="date"><span className="icon-calendar"></span> March 2013 - Present</span>
-                  <h3>Masteral in Information Technology</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                  <span className="school">New York University</span>
-                </div>
-
-                <div className="resume-item mb-4">
-                  <span className="date"><span className="icon-calendar"></span> March 2013 - Present Deacember.</span>
-                  <h3>Masteral in Information Technology</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                  <span className="school">New York University</span>
-                </div>
-
-                <div className="resume-item mb-4">
-                  <span className="date"><span className="icon-calendar"></span> March 2013 - Present</span>
-                  <h3>Masteral in Information Technology</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                  <span className="school">New York University</span>
-                </div>
-
-                <div className="resume-item mb-4">
-                  <span className="date"><span className="icon-calendar"></span> March 2013 - Present Deacember.</span>
-                  <h3>Masteral in Information Technology</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                  <span className="school">New York University</span>
-                </div>
-
+                {listEducation.map((value) => (
+                  <Resume data={value} />
+                ))}
               </div>
+
+              {/* EXPERIENCE */}
               <div className="col-md-6">
-
-
                 <h2 className="mb-5">Experience</h2>
-
-                <div className="resume-item mb-4">
-                  <span className="date"><span className="icon-calendar"></span> March 2013 - Present</span>
-                  <h3>Lead Product Designer</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                  <span className="school">Github</span>
-                </div>
-
-                <div className="resume-item mb-4">
-                  <span className="date"><span className="icon-calendar"></span> March 2013 - Present</span>
-                  <h3>Lead Product Designer</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                  <span className="school">Facebook</span>
-                </div>
-
-                <div className="resume-item mb-4">
-                  <span className="date"><span className="icon-calendar"></span> March 2013 - Present</span>
-                  <h3>Lead Product Designer</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                  <span className="school">Twitter</span>
-                </div>
-
-                <div className="resume-item mb-4">
-                  <span className="date"><span className="icon-calendar"></span> March 2013 - Present</span>
-                  <h3>Lead Product Designer</h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                  <span className="school">Shopify</span>
-                </div>
+                {listExperience.map((value) => (
+                  <Resume data={value} />
+                ))}
               </div>
             </div>
           </div>
