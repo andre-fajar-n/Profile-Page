@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import { Component } from "react";
-import Skills from "../components/Skills";
+// import Skills from "../components/Skills";
 import Resume from "../components/Resume";
-import Portfolio from "../components/Portfolio";
-import Experience from "../components/Experience";
+// import Portfolio from "../components/Portfolio";
+// import Experience from "../components/Experience";
 import ListEducation from "../data/Education";
-import ListSkills from "../data/Skills";
+// import ListSkills from "../data/Skills";
 import WorkExperience from "../data/WorkExperience";
 
 class Home extends Component {
@@ -57,7 +57,7 @@ class Home extends Component {
           <div className="container">
             <div className="row mb-5 align-items-center">
               <div className="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
-                <img src="images/image_1.jpg" alt="Image placeholder" className="img-fluid" />
+                <img src={require("../images/image_1.jpg")} alt="Image_placeholder" className="img-fluid" />
               </div>
               <div className="col-lg-5 pl-lg-5">
                 <div className="section-heading">
@@ -68,7 +68,7 @@ class Home extends Component {
 
                 <p>
                   <a href="#section-contact" className="btn btn-primary px-4 py-2 btn-sm smoothscroll">Hire Me</a>
-                  <a href="#" className="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
+                  <a href="g" className="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
                 </p>
               </div>
             </div>
@@ -264,11 +264,11 @@ class Home extends Component {
 
                 <div className="block-47 d-flex mb-5">
                   <div className="block-47-image">
-                    <img src="images/person_1.jpg" alt="Image placeholder" className="img-fluid" />
+                    <img src={require("../images/person_1.jpg")} alt="Image_placeholder" className="img-fluid" />
                   </div>
                   <blockquote className="block-47-quote">
                     <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                    <cite className="block-47-quote-author">&mdash; Ethan McCown, CEO <a href="#">XYZ Inc.</a></cite>
+                    <cite className="block-47-quote-author">&mdash; Ethan McCown, CEO <a href="f">XYZ Inc.</a></cite>
                   </blockquote>
                 </div>
 
@@ -277,11 +277,11 @@ class Home extends Component {
 
                 <div className="block-47 d-flex mb-5">
                   <div className="block-47-image">
-                    <img src="images/person_2.jpg" alt="Image placeholder" className="img-fluid" />
+                    <img src={require("../images/person_2.jpg")} alt="Image_placeholder" className="img-fluid" />
                   </div>
                   <blockquote className="block-47-quote">
                     <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                    <cite className="block-47-quote-author">&mdash; Craig Gowen, CEO <a href="#">XYZ Inc.</a></cite>
+                    <cite className="block-47-quote-author">&mdash; Craig Gowen, CEO <a href="f">XYZ Inc.</a></cite>
                   </blockquote>
                 </div>
 
@@ -291,11 +291,11 @@ class Home extends Component {
 
                 <div className="block-47 d-flex mb-5">
                   <div className="block-47-image">
-                    <img src="images/person_3.jpg" alt="Image placeholder" className="img-fluid" />
+                    <img src={require("../images/person_3.jpg")} alt="Image_placeholder" className="img-fluid" />
                   </div>
                   <blockquote className="block-47-quote">
                     <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                    <cite className="block-47-quote-author">&mdash; Ethan McCown, CEO <a href="#">XYZ Inc.</a></cite>
+                    <cite className="block-47-quote-author">&mdash; Ethan McCown, CEO <a href="f">XYZ Inc.</a></cite>
                   </blockquote>
                 </div>
 
@@ -304,11 +304,11 @@ class Home extends Component {
 
                 <div className="block-47 d-flex mb-5">
                   <div className="block-47-image">
-                    <img src="images/person_4.jpg" alt="Image placeholder" className="img-fluid" />
+                    <img src={require("../images/person_4.jpg")} alt="Image_placeholder" className="img-fluid" />
                   </div>
                   <blockquote className="block-47-quote">
                     <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                    <cite className="block-47-quote-author">&mdash; Craig Gowen, CEO <a href="#">XYZ Inc.</a></cite>
+                    <cite className="block-47-quote-author">&mdash; Craig Gowen, CEO <a href="f">XYZ Inc.</a></cite>
                   </blockquote>
                 </div>
 
@@ -337,7 +337,7 @@ class Home extends Component {
                   </span>
                   <h3 className="mb-4">Web Design</h3>
                   <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                  <p><a href="#" className="site-link">Learn More <i className="icon-chevron-right"></i></a></p>
+                  <p><a href="f" className="site-link">Learn More <i className="icon-chevron-right"></i></a></p>
                 </div>
               </div>
               <div className="col-md-6 col-lg-4 text-center mb-5">
@@ -347,7 +347,7 @@ class Home extends Component {
                   </span>
                   <h3 className="mb-4">Search Engine Optimization</h3>
                   <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                  <p><a href="#" className="site-link">Learn More <i className="icon-chevron-right"></i></a></p>
+                  <p><a href="f" className="site-link">Learn More <i className="icon-chevron-right"></i></a></p>
                 </div>
               </div>
               <div className="col-md-6 col-lg-4 text-center mb-5">
@@ -357,7 +357,7 @@ class Home extends Component {
                   </span>
                   <h3 className="mb-4">Video Editing</h3>
                   <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                  <p><a href="#" className="site-link">Learn More <i className="icon-chevron-right"></i></a></p>
+                  <p><a href="f" className="site-link">Learn More <i className="icon-chevron-right"></i></a></p>
                 </div>
               </div>
             </div>
@@ -378,14 +378,14 @@ class Home extends Component {
             <div className="row">
               <div className="col-sm-6 col-lg-4 mb-4">
                 <div className="blog-entry">
-                  <a href="#"><img src="images/post_1.jpg" alt="Image placeholder" className="img-fluid" /></a>
+                  <a href="f"><img src={require("../images/post_1.jpg")} alt="Image_placeholder" className="img-fluid" /></a>
                   <div className="blog-entry-text">
-                    <h3><a href="#">Creative Product Designer From Facebook</a></h3>
+                    <h3><a href="f">Creative Product Designer From Facebook</a></h3>
                     <p className="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
 
                     <div className="meta">
-                      <a href="#"><span className="icon-calendar"></span> Aug 7, 2018</a>
-                      <a href="#"><span className="icon-bubble"></span> 5 Comments</a>
+                      <a href="f"><span className="icon-calendar"></span> Aug 7, 2018</a>
+                      <a href="f"><span className="icon-bubble"></span> 5 Comments</a>
                     </div>
                   </div>
                 </div>
@@ -393,14 +393,14 @@ class Home extends Component {
 
               <div className="col-sm-6 col-lg-4 mb-4">
                 <div className="blog-entry">
-                  <a href="#"><img src="images/post_2.jpg" alt="Image placeholder" className="img-fluid" /></a>
+                  <a href="google.com"><img src={require("../images/post_2.jpg")} alt="Image_placeholder" className="img-fluid" /></a>
                   <div className="blog-entry-text">
-                    <h3><a href="#">Creative Product Designer From Facebook</a></h3>
+                    <h3><a href="g">Creative Product Designer From Facebook</a></h3>
                     <p className="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
 
                     <div className="meta">
-                      <a href="#"><span className="icon-calendar"></span> Aug 7, 2018</a>
-                      <a href="#"><span className="icon-bubble"></span> 5 Comments</a>
+                      <a href="f"><span className="icon-calendar"></span> Aug 7, 2018</a>
+                      <a href="f"><span className="icon-bubble"></span> 5 Comments</a>
                     </div>
                   </div>
                 </div>
@@ -408,14 +408,14 @@ class Home extends Component {
 
               <div className="col-sm-6 col-lg-4 mb-4">
                 <div className="blog-entry">
-                  <a href="#"><img src="images/post_3.jpg" alt="Image placeholder" className="img-fluid" /></a>
+                  <a href="f"><img src={require("../images/post_3.jpg")} alt="Image_placeholder" className="img-fluid" /></a>
                   <div className="blog-entry-text">
-                    <h3><a href="#">Creative Product Designer From Facebook</a></h3>
+                    <h3><a href="f">Creative Product Designer From Facebook</a></h3>
                     <p className="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
 
                     <div className="meta">
-                      <a href="#"><span className="icon-calendar"></span> Aug 7, 2018</a>
-                      <a href="#"><span className="icon-bubble"></span> 5 Comments</a>
+                      <a href="f"><span className="icon-calendar"></span> Aug 7, 2018</a>
+                      <a href="f"><span className="icon-bubble"></span> 5 Comments</a>
                     </div>
                   </div>
                 </div>
@@ -482,7 +482,7 @@ class Home extends Component {
             <div className="row mb-5">
               <p className="col-12 text-center">
                 {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
-      Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i className="icon-heart text-danger" aria-hidden="true" ></i> by <a href="https://colorlib.com" target="_blank" className="text-primary">Colorlib</a>
+      Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i className="icon-heart text-danger" aria-hidden="true" ></i> by <a href="https://colorlib.com" target="blank" className="text-primary">Colorlib</a>
                 {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
               </p>
             </div>
