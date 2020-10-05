@@ -2,7 +2,6 @@
   "name": "jackson",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://andre-fajar-n.github.io/Profile-Page",
   "dependencies": {
     "-": "0.0.1",
     "@testing-library/jest-dom": "^4.2.4",

@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
 import { Component } from "react";
 // import Skills from "../components/Skills";
-import Resume from "../components/Resume";
+import Resume from "../components/EduAndExperience";
 // import Portfolio from "../components/Portfolio";
-// import Experience from "../components/Experience";
 import ListEducation from "../data/Education";
 // import ListSkills from "../data/Skills";
 import WorkExperience from "../data/WorkExperience";
