@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { Component } from "react";
-// import Skills from "../components/Skills";
+import Skills from "../components/Skills";
 import Resume from "../components/EduAndExperience";
 // import Portfolio from "../components/Portfolio";
 import ListEducation from "../data/Education";
-// import ListSkills from "../data/Skills";
+import ListSkills from "../data/Skills";
 import WorkExperience from "../data/WorkExperience";
 
 class Home extends Component {
@@ -211,6 +211,9 @@ class Home extends Component {
               <div className="col-md-12 mb-5">
                 <div className="section-heading text-center">
                   <h2>My <strong>Skills</strong></h2>
+                  {ListSkills.map((value) => (
+                    <Skills data={value} />
+                  ))}
                 </div>
               </div>
             </div>
