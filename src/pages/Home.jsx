@@ -2,10 +2,12 @@ import React, { Fragment } from "react";
 import { Component } from "react";
 import Skills from "../components/Skills";
 import Resume from "../components/EduAndExperience";
-// import Portfolio from "../components/Portfolio";
+import Portfolio from "../components/Portfolio";
 import ListEducation from "../data/Education";
 import ListSkills from "../data/Skills";
 import WorkExperience from "../data/WorkExperience";
+import category from "../data/Category";
+import portfolio from "../data/Portfolio";
 
 class Home extends Component {
   render() {
@@ -27,8 +29,8 @@ class Home extends Component {
                 <li className="nav-item"><a className="nav-link" href="#section-home">Home</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-about">About</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-resume">Resume</a></li>
-                <li className="nav-item"><a className="nav-link" href="#section-skills">Skills</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-portfolio">Portfolio</a></li>
+                <li className="nav-item"><a className="nav-link" href="#section-skills">Skills</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-contact">Contact</a></li>
               </ul>
             </div>
@@ -86,16 +88,22 @@ class Home extends Component {
             <div className="filters">
               <ul>
                 <li className="active" data-filter="*">All</li>
-                <li data-filter=".packaging">Packaging</li>
-                <li data-filter=".mockup">Mockup</li>
+                {category.map((value) => (
+                  <li data-filter={`.${value}`}>{value.replace("-", " ")}</li>
+
+                ))}
+                {/* <li data-filter=".mockup">Mockup</li>
                 <li data-filter=".typography">Typography</li>
-                <li data-filter=".photography">Photography</li>
+                <li data-filter=".photography">Photography</li> */}
               </ul>
             </div>
 
             <div className="filters-content">
               <div className="row grid">
-                <div className="single-portfolio col-sm-4 all mockup">
+                {portfolio.map((value) => (
+                  <Portfolio data={value} />
+                ))}
+                {/* <div className="single-portfolio col-sm-4 all mockup">
                   <div className="relative">
                     <div className="thumb">
                       <div className="overlay overlay-bg"></div>
@@ -112,23 +120,7 @@ class Home extends Component {
                     <div className="cat">Mockup</div>
                   </div>
                 </div>
-                <div className="single-portfolio col-sm-4 all mockup">
-                  <div className="relative">
-                    <div className="thumb">
-                      <div className="overlay overlay-bg"></div>
-                      <img className="image img-fluid" src="images/p2.jpg" alt="" />
-                    </div>
-                    <a href="images/p2.jpg" className="img-pop-up">
-                      <div className="middle">
-                        <div className="text align-self-center d-flex"><img src="images/preview.png" alt="" /></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="p-inner">
-                    <h4>Product Box Package Mockup</h4>
-                    <div className="cat">Mockup</div>
-                  </div>
-                </div>
+
                 <div className="single-portfolio col-sm-4 all packaging">
                   <div className="relative">
                     <div className="thumb">
@@ -147,23 +139,7 @@ class Home extends Component {
                     <div className="cat">Packaging</div>
                   </div>
                 </div>
-                <div className="single-portfolio col-sm-4 all packaging">
-                  <div className="relative">
-                    <div className="thumb">
-                      <div className="overlay overlay-bg"></div>
-                      <img className="image img-fluid" src="images/p4.jpg" alt="" />
-                    </div>
-                    <a href="images/p4.jpg" className="img-pop-up">
-                      <div className="middle">
-                        <div className="text align-self-center d-flex"><img src="images/preview.png" alt="" /></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="p-inner">
-                    <h4>Packaging Brand</h4>
-                    <div className="cat">Packaging</div>
-                  </div>
-                </div>
+
                 <div className="single-portfolio col-sm-4 all typography">
                   <div className="relative">
                     <div className="thumb">
@@ -197,7 +173,7 @@ class Home extends Component {
                     <h4>White Space Photography</h4>
                     <div className="cat">photography</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
