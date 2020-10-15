@@ -1,18 +1,19 @@
-import React, { Fragment } from "react";
+import React from "react";
+import "../style/css/Skills.css"
 
 const Skills = (props) => {
   const subTitle = props.data.title
   const dataIcon = props.data.data
 
   return (
-    <Fragment>
-      <h3>{subTitle}</h3>
+    <div className="skills">
+      <h3><strong>{subTitle}</strong></h3>
       {dataIcon.map((value) => (
         <a href={value.url} target="blank" className="mr-3 ml-3">
-          <img src={value.image} alt="a" style={{ width: "auto", height: "80px" }} />
+          <img className="logo" src={value.image} alt="a" />
         </a>
       ))}
-    </Fragment>
+    </div>
   )
 }
 

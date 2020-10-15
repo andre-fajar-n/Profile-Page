@@ -39,7 +39,7 @@ class Home extends Component {
         {/* END NAVBAR */}
 
         {/* START FOTO PROFILE */}
-        <section className="site-hero" style={{ backgroundImage: "url(images/image_1.jpg);" }} id="section-home" data-stellar-background-ratio="0.5">
+        <section className="site-hero" style={{ backgroundImage: "url(../images/image_1.jpg)" }} id="section-home" data-stellar-background-ratio="0.5">
           <div className="container">
             <div className="row intro-text align-items-center justify-content-center">
               <div className="col-md-10 text-center pt-5">
@@ -92,9 +92,6 @@ class Home extends Component {
                   <li data-filter={`.${value}`}>{value.replace("-", " ")}</li>
 
                 ))}
-                {/* <li data-filter=".mockup">Mockup</li>
-                <li data-filter=".typography">Typography</li>
-                <li data-filter=".photography">Photography</li> */}
               </ul>
             </div>
 
@@ -103,77 +100,6 @@ class Home extends Component {
                 {portfolio.map((value) => (
                   <Portfolio data={value} />
                 ))}
-                {/* <div className="single-portfolio col-sm-4 all mockup">
-                  <div className="relative">
-                    <div className="thumb">
-                      <div className="overlay overlay-bg"></div>
-                      <img className="image img-fluid" src="images/p1.jpg" alt="" />
-                    </div>
-                    <a href="images/p1.jpg" className="img-pop-up">
-                      <div className="middle">
-                        <div className="text align-self-center d-flex"><img src="images/preview.png" alt="" /></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="p-inner">
-                    <h4>Square Box Mockup</h4>
-                    <div className="cat">Mockup</div>
-                  </div>
-                </div>
-
-                <div className="single-portfolio col-sm-4 all packaging">
-                  <div className="relative">
-                    <div className="thumb">
-                      <div className="overlay overlay-bg"></div>
-                      <img className="image img-fluid" src="images/p3.jpg" alt="" />
-                    </div>
-                    <a href="images/p3.jpg" className="img-pop-up">
-                      <div className="middle">
-                        <div className="text align-self-center d-flex"><img src="images/preview.png" alt="" /></div>
-                      </div>
-                    </a>
-
-                  </div>
-                  <div className="p-inner">
-                    <h4>Creative Package Design</h4>
-                    <div className="cat">Packaging</div>
-                  </div>
-                </div>
-
-                <div className="single-portfolio col-sm-4 all typography">
-                  <div className="relative">
-                    <div className="thumb">
-                      <div className="overlay overlay-bg"></div>
-                      <img className="image img-fluid" src="images/p5.jpg" alt="" />
-                    </div>
-                    <a href="images/p5.jpg" className="img-pop-up">
-                      <div className="middle">
-                        <div className="text align-self-center d-flex"><img src="images/preview.png" alt="" /></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="p-inner">
-                    <h4>Isometric 3D Extrusion</h4>
-                    <div className="cat">Typography</div>
-                  </div>
-                </div>
-                <div className="single-portfolio col-sm-4 all photography">
-                  <div className="relative">
-                    <div className="thumb">
-                      <div className="overlay overlay-bg"></div>
-                      <img className="image img-fluid" src="images/p6.jpg" alt="" />
-                    </div>
-                    <a href="images/p6.jpg" className="img-pop-up">
-                      <div className="middle">
-                        <div className="text align-self-center d-flex"><img src="images/preview.png" alt="" /></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="p-inner">
-                    <h4>White Space Photography</h4>
-                    <div className="cat">photography</div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>

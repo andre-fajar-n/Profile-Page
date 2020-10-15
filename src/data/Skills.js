@@ -1,5 +1,5 @@
 const language = {
-    "title": "language",
+    "title": "Language",
     "data": [
         {
             "image": "https://devicons.github.io/devicon/devicon.git/icons/python/python-original.svg",
@@ -25,7 +25,7 @@ const language = {
 }
 
 const backend = {
-    "title": "backend",
+    "title": "Backend",
     "data": [
         {
             "image": "https://img.icons8.com/color/96/000000/django.png",
@@ -51,7 +51,7 @@ const backend = {
 }
 
 const frontend = {
-    "title": "frontend",
+    "title": "Frontend",
     "data": [
         {
             "image": "https://devicons.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg",
@@ -81,7 +81,7 @@ const frontend = {
 }
 
 const database = {
-    "title": "database",
+    "title": "Database",
     "data": [
         {
             "image": "https://devicons.github.io/devicon/devicon.git/icons/mysql/mysql-original-wordmark.svg",
@@ -103,14 +103,14 @@ const database = {
 }
 
 const hardware = {
-    "title": "hardware",
+    "title": "Hardware",
     "data": [
         {
             "image": "https://cdn.iconscout.com/icon/free/png-512/arduino-4-569256.png",
             "url": "https://www.arduino.cc/",
         },
         {
-            "image": "https://www.pngfind.com/pngs/m/19-198800_logo-raspberry-pi-icon-hd-png-download.png",
+            "image": "https://www.raspberrypi.org/app/uploads/2018/03/RPi-Logo-Reg-SCREEN.png",
             "url": "https://www.raspberrypi.org/",
         },
         {
@@ -137,7 +137,7 @@ const hardware = {
 }
 
 const others = {
-    "title": "others",
+    "title": "Others",
     "data": [
         {
             "image": "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg",
