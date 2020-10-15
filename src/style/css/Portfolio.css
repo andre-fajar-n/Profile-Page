@@ -1,0 +1,22 @@
+.demo {
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #41b883;
+    display: flex;
+    font-weight: 700;
+    border-width: 1px;
+    border-color: #ffffff;
+    border-style: solid;
+}
+
+/* START HOVER */
+.hover{display: none;}
+a:hover .hover{display: inline;}
+a:hover .no-hover{display: none;}
+/* END HOVER */
+
+/* START HOVER */
+a .demo:hover{
+    background-color: #273849;
+}
+/* END HOVER */
