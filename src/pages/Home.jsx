@@ -29,7 +29,7 @@ class Home extends Component {
               <ul className="navbar-nav">
                 <li className="nav-item"><a className="nav-link" href="#section-home">Home</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-about">About</a></li>
-                <li className="nav-item"><a className="nav-link" href="#section-resume">Resume</a></li>
+                <li className="nav-item"><a className="nav-link" href="#section-education-experience">Education & Experience</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-portfolio">Portfolio</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-skills">Skills</a></li>
                 <li className="nav-item"><a className="nav-link" href="#section-contact">Contact</a></li>
@@ -69,18 +69,18 @@ class Home extends Component {
         {/* END ABOUT */}
 
         {/* START RESUME */}
-        <section className="site-section " id="section-resume">
+        <section className="site-section" id="section-education-experience">
           <div className="container">
             <div className="row">
               <div className="col-md-12 mb-5">
                 <div className="section-heading text-center">
-                  <h2>My <strong>Resume</strong></h2>
+                  <h2>My <strong>Education</strong> & <strong>Experience</strong></h2>
                 </div>
               </div>
 
               {/* EDUCATION */}
               <div className="col-md-6">
-                <h2 className="mb-5">Education</h2>
+                <h2 className="mb-5"><strong>Education</strong></h2>
                 {listEducation.map((value) => (
                   <Resume data={value} />
                 ))}
@@ -88,7 +88,7 @@ class Home extends Component {
 
               {/* EXPERIENCE */}
               <div className="col-md-6">
-                <h2 className="mb-5">Experience</h2>
+                <h2 className="mb-5"><strong>Experience</strong></h2>
                 {listExperience.map((value) => (
                   <Resume data={value} />
                 ))}

@@ -1,0 +1,24 @@
+.school{
+    font-weight: 800;
+    color: #fff;
+}
+
+.description{
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.resume-item{
+    transition: transform 1s;
+}
+
+.resume-item:hover{
+    transform: scale(0.95);
+}
+
+.resume-item:hover .title{
+    color: #fff;
+}
+
+.resume-item:hover .date, .resume-item:hover .school{
+    color: #bac964;
+}
