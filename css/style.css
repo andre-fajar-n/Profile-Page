@@ -491,8 +491,6 @@ a {
   .resume-item h3 {
     color: #bac964;
     font-size: 20px; }
-  .resume-item .school {
-    color: rgba(255, 255, 255, 0.3); }
   .resume-item *:last-child {
     margin-bottom: 0; }
 
