@@ -8,6 +8,7 @@ import ListSkills from "../data/Skills";
 import WorkExperience from "../data/WorkExperience";
 import category from "../data/Category";
 import portfolio from "../data/Portfolio";
+import "../style/css/Home.css"
 
 class Home extends Component {
   render() {
@@ -39,17 +40,7 @@ class Home extends Component {
         {/* END NAVBAR */}
 
         {/* START FOTO PROFILE */}
-        <section className="site-hero" style={{ backgroundImage: "url(../images/image_1.jpg)" }} id="section-home" data-stellar-background-ratio="0.5">
-          <div className="container">
-            <div className="row intro-text align-items-center justify-content-center">
-              <div className="col-md-10 text-center pt-5">
-
-                <h1 className="site-heading site-animate">Hello, I'm <strong className="d-block">Andre Fajar Nugroho</strong></h1>
-                <strong className="d-block text-white text-uppercase letter-spacing">and this is My Resume</strong>
-
-              </div>
-            </div>
-          </div>
+        <section className="site-hero" id="section-home" data-stellar-background-ratio="0.5">
         </section>
         {/* END FOTO PROFILE */}
 
@@ -58,7 +49,7 @@ class Home extends Component {
           <div className="container">
             <div className="row mb-5 align-items-center">
               <div className="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
-                <img src={require("../images/image_1.jpg")} alt="Image_placeholder" className="img-fluid" />
+                <img src={require("../images/name.jpg")} alt="Image_placeholder" className="img-fluid" />
               </div>
               <div className="col-lg-5 pl-lg-5">
                 <div className="section-heading">
@@ -69,13 +60,43 @@ class Home extends Component {
 
                 <p>
                   <a href="#section-contact" className="btn btn-primary px-4 py-2 btn-sm smoothscroll">Hire Me</a>
-                  <a href="g" className="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
+                  <a href="https://drive.google.com/file/d/1b7jfB5OMFvovTvi4oHNhdFqhLb3hGRRK/view?usp=sharing" target="blank" className="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
                 </p>
               </div>
             </div>
           </div>
         </section>
         {/* END ABOUT */}
+
+        {/* START RESUME */}
+        <section className="site-section " id="section-resume">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12 mb-5">
+                <div className="section-heading text-center">
+                  <h2>My <strong>Resume</strong></h2>
+                </div>
+              </div>
+
+              {/* EDUCATION */}
+              <div className="col-md-6">
+                <h2 className="mb-5">Education</h2>
+                {listEducation.map((value) => (
+                  <Resume data={value} />
+                ))}
+              </div>
+
+              {/* EXPERIENCE */}
+              <div className="col-md-6">
+                <h2 className="mb-5">Experience</h2>
+                {listExperience.map((value) => (
+                  <Resume data={value} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* END RESUME */}
 
         {/* START PORTFOLIO */}
         <section className="site-section" id="section-portfolio">
@@ -122,37 +143,6 @@ class Home extends Component {
           </div>
         </section>
         {/* END SKILLS */}
-
-        {/* START RESUME */}
-        <section className="site-section " id="section-resume">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 mb-5">
-                <div className="section-heading text-center">
-                  <h2>My <strong>Resume</strong></h2>
-                </div>
-              </div>
-
-              {/* EDUCATION */}
-              <div className="col-md-6">
-                <h2 className="mb-5">Education</h2>
-                {listEducation.map((value) => (
-                  <Resume data={value} />
-                ))}
-              </div>
-
-              {/* EXPERIENCE */}
-              <div className="col-md-6">
-                <h2 className="mb-5">Experience</h2>
-                {listExperience.map((value) => (
-                  <Resume data={value} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* END RESUME */}
-
 
         <section className="site-section">
           <div className="container">
