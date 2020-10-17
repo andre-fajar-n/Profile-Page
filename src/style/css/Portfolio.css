@@ -25,16 +25,16 @@
 }
 
 .flip-box-front{
-    background-color: #273849;
-    border: 1px solid #fff;
+    background-color: #333333;
+    border: 2px solid #fff;
     border-radius: 5px;
 }
 
 .flip-box-back {
     transform: rotateX(180deg);
-    border: 1px solid #273849;
+    border: 2px solid #fff;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #bac964;
 }
 /* END HOVER REPO*/
 
@@ -53,7 +53,6 @@
     text-align: center;
     transition: transform 1s;
     transform-style: preserve-3d;
-    color: #41b883;
     font-weight: 700;
 }
 
@@ -70,15 +69,28 @@
 }
 
 .demo-front {
-    background-color: #fff;
+    background-color: #bac964;
+    color: #333333;
     border-radius: 5px;
-    border: 1px solid #273849;
+    border: 2px solid #fff;
 }
 
 .demo-back {
-    background-color: #273849;
+    background-color: #333333;
+    color: #bac964;
     transform: rotateY(180deg);
     border-radius: 5px;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
 }
 /* END HOVER DEMO*/
+
+.no-demo{
+    background-color: #bac964;
+    color: #333333;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    width: 350px;
+    height: 30px;
+    text-align: center;
+    font-weight: 700;
+}

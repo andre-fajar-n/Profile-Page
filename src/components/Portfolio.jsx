@@ -3,6 +3,10 @@ import "../style/css/Portfolio.css"
 
 const Portfolio = (props) => {
   var demo = props.data.demo
+  var repoBack = props.data.image.replace("bg_color=333333", "bg_color=bac964")
+  repoBack = repoBack.replace("title_color=bac964", "title_color=333333")
+  repoBack = repoBack.replace("icon_color=bac964", "icon_color=333333")
+  repoBack = repoBack.replace("ffffff", "000000")
 
   return (
     <Fragment>
@@ -10,22 +14,21 @@ const Portfolio = (props) => {
         <div className="relative">
           <div className="thumb">
             <a href={props.data.github} target="blank" className="img-pop-up inner">
-              {/* <div className="overlay overlay-bg"></div>
-              <img className="image img-fluid no-hover" src={props.data.image} alt="" />
-              <img className="image img-fluid hover" src={props.data.image.replace("-dark", "")} alt="" /> */}
               <div class="flip-box">
                 <div class="flip-box-inner">
                   <div class="flip-box-front">
                     <img className="image img-fluid no-hover" src={props.data.image} alt="" />
                   </div>
                   <div class="flip-box-back">
-                    <img className="image img-fluid hover" src={props.data.image.replace("-dark", "")} alt="" />
+                    <img className="image img-fluid hover" src={repoBack} alt="" />
                   </div>
                 </div>
               </div>
             </a>
             {demo === "" ? (
-              <Fragment></Fragment>
+              <div className="no-demo">
+                No Demo
+              </div>
             ) : (
                 <a href={demo} target="blank">
                   <div class="demo">
@@ -39,11 +42,6 @@ const Portfolio = (props) => {
                     </div>
                   </div>
                 </a>
-                // <a href={demo} target="blank">
-                //   <div className="cat demo">
-                //     <div className="m-auto">View Demo</div>
-                //   </div>
-                // </a>
               )}
           </div>
         </div>
