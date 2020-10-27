@@ -103,7 +103,7 @@ const database = {
 }
 
 const hardware = {
-    "title": "Hardware",
+    "title": "Electronics",
     "data": [
         {
             "image": "https://cdn.iconscout.com/icon/free/png-512/arduino-4-569256.png",
@@ -114,16 +114,16 @@ const hardware = {
             "url": "https://www.raspberrypi.org/",
         },
         {
-            "image": "https://beagleboard.org/static/uploads/BeagleBoardCompliantLowRes.png",
-            "url": "",
-        },
-        {
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/OpenCV_Logo_with_text_svg_version.svg/1200px-OpenCV_Logo_with_text_svg_version.svg.png",
+            "image": "https://beagleboard.org/static/images/logos/logo/beagleboard-logo/beagleboard-logo.png",
             "url": "https://beagleboard.org/",
         },
         {
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/OpenCV_Logo_with_text_svg_version.svg/1200px-OpenCV_Logo_with_text_svg_version.svg.png",
+            "url": "https://opencv.org/",
+        },
+        {
             "image": "https://image.flaticon.com/icons/svg/2752/2752843.svg",
-            "url": "",
+            "url": "https://en.wikipedia.org/wiki/AVR_microcontrollers",
         },
         {
             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/KiCad-Logo.svg/1200px-KiCad-Logo.svg.png",
