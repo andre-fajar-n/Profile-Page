@@ -9,12 +9,15 @@ import WorkExperience from "../data/WorkExperience";
 import category from "../data/Category";
 import portfolio from "../data/Portfolio";
 import "../style/css/Home.css"
+import { getAllRepos } from "../store/action/github";
+import { connect } from "react-redux";
 
 class Home extends Component {
-  render() {
-    const listEducation = ListEducation;
-    const listExperience = WorkExperience;
+  componentDidMount = async () => {
+    await this.props.getAllRepos()
+  }
 
+  render() {
     return (
       <Fragment>
         {/* START NAVBAR */}
@@ -96,7 +99,7 @@ class Home extends Component {
               {/* EDUCATION */}
               <div className="col-md-6">
                 <h2 className="mb-5"><strong>Education</strong></h2>
-                {listEducation.map((value) => (
+                {ListEducation.map((value) => (
                   <Resume data={value} />
                 ))}
               </div>
@@ -104,7 +107,7 @@ class Home extends Component {
               {/* EXPERIENCE */}
               <div className="col-md-6">
                 <h2 className="mb-5"><strong>Experience</strong></h2>
-                {listExperience.map((value) => (
+                {WorkExperience.map((value) => (
                   <Resume data={value} />
                 ))}
               </div>
@@ -176,4 +179,12 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  repos: state.github.repos,
+})
+
+const mapDispatchToProps = {
+  getAllRepos,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
