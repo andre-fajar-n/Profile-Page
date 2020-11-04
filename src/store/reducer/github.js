@@ -1,5 +1,8 @@
 const initialGithub = {
-    repos: []
+    isSuccess: false,
+    repos: [],
+    filtered: {},
+    isLoading: true,
 }
 
 export default function githubReducer(githubState = initialGithub, action) {
@@ -7,7 +10,10 @@ export default function githubReducer(githubState = initialGithub, action) {
         case "GET_ALL_REPOS":
             return {
                 ...githubState,
-                repos: action.payload,
+                isSuccess: action.payload.isSuccess,
+                repos: action.payload.data,
+                filtered: action.payload.filtered,
+                isLoading: false,
             }
         default:
             return githubState

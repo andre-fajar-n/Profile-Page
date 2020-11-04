@@ -2,41 +2,44 @@ import React, { Fragment } from "react";
 import "../style/css/Portfolio.css"
 
 const Portfolio = (props) => {
-  var demo = props.data.demo
-  var repoBack = props.data.image.replace("bg_color=333333", "bg_color=bac964")
-  repoBack = repoBack.replace("title_color=bac964", "title_color=333333")
-  repoBack = repoBack.replace("icon_color=bac964", "icon_color=333333")
-  repoBack = repoBack.replace("ffffff", "000000")
+  console.log("cek props profolio", props)
+  var repoFront = `https://github-readme-stats.vercel.app/api/pin/?hide_border=true&username=${props.username}&repo=${props.repo}&title_color=bac964&bg_color=333333&text_color=ffffff&icon_color=bac964`
+  var repoBack = `https://github-readme-stats.vercel.app/api/pin/?hide_border=true&username=${props.username}&repo=${props.repo}&title_color=333333&bg_color=bac964&text_color=000000&icon_color=333333`
+  var title = props.repo
+  if (props.username !== props.repo) {
+    title = props.repo.replace(/-/gi, " ")
+  }
+  title = title.replace(/_/gi, " ")
 
   return (
     <Fragment>
-      <div className={`single-portfolio col-sm-4 all ${props.data.category}`}>
+      <div className="single-portfolio col-sm-4 all">
         <div className="relative">
           <div className="thumb">
-            <a href={props.data.github} target="blank" className="img-pop-up inner">
-              <div class="flip-box">
-                <div class="flip-box-inner">
-                  <div class="flip-box-front">
-                    <img className="image img-fluid no-hover" src={props.data.image} alt="" />
+            <a href={props.github} target="blank" className="img-pop-up inner">
+              <div className="flip-box">
+                <div className="flip-box-inner">
+                  <div className="flip-box-front">
+                    <img className="image img-fluid no-hover" src={repoFront} alt="" />
                   </div>
-                  <div class="flip-box-back">
+                  <div className="flip-box-back">
                     <img className="image img-fluid hover" src={repoBack} alt="" />
                   </div>
                 </div>
               </div>
             </a>
-            {demo === "" ? (
-              <div className="no-demo">
+            {props.demo === "" || props.demo === null ? (
+              <div className="no-demo img-fluid">
                 No Demo
               </div>
             ) : (
-                <a href={demo} target="blank">
-                  <div class="demo">
-                    <div class="demo-inner">
-                      <div class="demo-front">
+                <a href={props.demo} target="blank" className="img-fluid">
+                  <div className="demo">
+                    <div className="demo-inner">
+                      <div className="demo-front">
                         <div>View Demo</div>
                       </div>
-                      <div class="demo-back">
+                      <div className="demo-back">
                         <div>View Demo</div>
                       </div>
                     </div>
@@ -46,8 +49,7 @@ const Portfolio = (props) => {
           </div>
         </div>
         <div className="p-inner">
-          <h4>{props.data.title}</h4>
-          <div className="cat">{props.data.category}</div>
+          <h4>{title}</h4>
         </div>
       </div>
     </Fragment>

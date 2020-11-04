@@ -35,3 +35,12 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
+.portfolio.active, .portfolio .active{
+    background-color: #bac964 !important;
+    color: #000 !important;
+}
+
+.nav-tabs{
+    border-bottom: 0px !important;
+}

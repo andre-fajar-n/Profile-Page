@@ -1,6 +1,6 @@
-const category = [
+const categories = [
     "Software",
     "Electronics",
     "Computer-Vision"
 ]
-export default category;
+export default categories;

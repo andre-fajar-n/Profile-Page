@@ -6,11 +6,18 @@ import Portfolio from "../components/Portfolio";
 import ListEducation from "../data/Education";
 import ListSkills from "../data/Skills";
 import WorkExperience from "../data/WorkExperience";
-import category from "../data/Category";
-import portfolio from "../data/Portfolio";
+import categories from "../data/Category";
 import "../style/css/Home.css"
 import { getAllRepos } from "../store/action/github";
 import { connect } from "react-redux";
+import { css } from "@emotion/core";
+import { FadeLoader } from "react-spinners";
+
+const override = css`
+display: blok;
+margin: 0 auto;
+border-color: red;
+`;
 
 class Home extends Component {
   componentDidMount = async () => {
@@ -57,12 +64,12 @@ class Home extends Component {
                 <div className="section-heading">
                   <h2>About <strong>Me</strong></h2>
                 </div>
-                <ul class="about-info mt-4 px-md-0 px-2">
-                  <li class="d-flex"><span>Name:</span> <span>Andre Fajar Nugroho</span></li>
-                  <li class="d-flex"><span>Date of birth:</span> <span>June 07, 1996</span></li>
-                  <li class="d-flex"><span>Address:</span> <span>Blitar Street 20, Ngunut, Tulungagung, East Java, Indonesia</span>
+                <ul className="about-info mt-4 px-md-0 px-2">
+                  <li className="d-flex"><span>Name:</span> <span>Andre Fajar Nugroho</span></li>
+                  <li className="d-flex"><span>Date of birth:</span> <span>June 07, 1996</span></li>
+                  <li className="d-flex"><span>Address:</span> <span>Blitar Street 20, Ngunut, Tulungagung, East Java, Indonesia</span>
                   </li>
-                  <li class="d-flex"><span>Zip code:</span> <span>66292</span></li>
+                  <li className="d-flex"><span>Zip code:</span> <span>66292</span></li>
                 </ul>
 
                 <p>
@@ -99,16 +106,16 @@ class Home extends Component {
               {/* EDUCATION */}
               <div className="col-md-6">
                 <h2 className="mb-5"><strong>Education</strong></h2>
-                {ListEducation.map((value) => (
-                  <Resume data={value} />
+                {ListEducation.map((value, i) => (
+                  <Resume data={value} key={i} />
                 ))}
               </div>
 
               {/* EXPERIENCE */}
               <div className="col-md-6">
                 <h2 className="mb-5"><strong>Experience</strong></h2>
-                {WorkExperience.map((value) => (
-                  <Resume data={value} />
+                {WorkExperience.map((value, i) => (
+                  <Resume data={value} key={i} />
                 ))}
               </div>
             </div>
@@ -124,23 +131,68 @@ class Home extends Component {
                 <h2>Featured <strong>Portfolio</strong></h2>
               </div>
             </div>
-            <div className="filters">
-              <ul>
-                <li className="active" data-filter="*">All</li>
-                {category.map((value) => (
-                  <li data-filter={`.${value}`}>{value.replace("-", " ")}</li>
 
-                ))}
-              </ul>
-            </div>
+            <ul className="nav nav-tabs" id="myTab" role="tablist">
+              <li className="nav-item" role="presentation">
+                <a className="nav-link portfolio active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
+              </li>
+              {categories.map((value) => (
+                <li className="nav-item portfolio" key={value} role="presentation">
+                  <a className="nav-link" id={`${value}-tab`} data-toggle="tab" href={`#${value}`} role="tab" aria-controls={`${value}`} aria-selected="false">{value}</a>
+                </li>
+              ))}
+            </ul>
 
-            <div className="filters-content">
-              <div className="row grid">
-                {portfolio.map((value) => (
-                  <Portfolio data={value} />
-                ))}
-              </div>
-            </div>
+            {this.props.isLoading ? (
+              <Fragment>
+                <FadeLoader
+                  css={override}
+                  height={50}
+                  width={10}
+                  radius={25}
+                  margin={50}
+                  color={"#bac964"}
+                />
+              </Fragment>
+            ) : (
+                <div className="tab-content" id="myTabContent">
+                  <div className="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                    <div className="row">
+                      {this.props.repos.map((repo) => (
+                        <Portfolio
+                          key={repo.full_name}
+                          github={repo.html_url}
+                          demo={repo.homepage}
+                          username={repo.owner.login}
+                          repo={repo.name}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  {categories.map((value) => (
+                    <div className="tab-pane fade" key={value} id={`${value}`} role="tabpanel" aria-labelledby={`${value}`}>
+                      <div className="row">
+                        {this.props.filtered[`${value}`] === undefined ? (
+                          <Fragment>
+                          </Fragment>
+                        ) : (
+                            <Fragment>
+                              {this.props.filtered[`${value}`].map((repo) => (
+                                <Portfolio
+                                  key={repo.full_name}
+                                  github={repo.html_url}
+                                  demo={repo.homepage}
+                                  username={repo.owner.login}
+                                  repo={repo.name}
+                                />
+                              ))}
+                            </Fragment>
+                          )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
           </div>
         </section>
         {/* END PORTFOLIO */}
@@ -152,8 +204,8 @@ class Home extends Component {
               <div className="col-md-12 mb-5">
                 <div className="section-heading text-center">
                   <h2>My <strong>Skills</strong></h2>
-                  {ListSkills.map((value) => (
-                    <Skills data={value} />
+                  {ListSkills.map((value, idx) => (
+                    <Skills key={idx} data={value} />
                   ))}
                 </div>
               </div>
@@ -181,6 +233,9 @@ class Home extends Component {
 
 const mapStateToProps = (state) => ({
   repos: state.github.repos,
+  filtered: state.github.filtered,
+  githubSuccess: state.github.isSuccess,
+  isLoading: state.github.isLoading,
 })
 
 const mapDispatchToProps = {
