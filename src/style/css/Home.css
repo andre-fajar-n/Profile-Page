@@ -27,7 +27,7 @@
     font-size: 22px;
     margin: 0 10px;
 }
-.social-media .social-item > span {
+.social-media .social-item > i {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -39,8 +39,17 @@
 .portfolio.active, .portfolio .active{
     background-color: #bac964 !important;
     color: #000 !important;
+    border-radius: 5px;
+}
+
+.portfolio:hover{
+    border-radius: 5px;
 }
 
 .nav-tabs{
     border-bottom: 0px !important;
+}
+
+#myTabContent{
+    padding-top: 20px;
 }

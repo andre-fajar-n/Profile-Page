@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import "../style/css/Portfolio.css"
 
 const Portfolio = (props) => {
-  console.log("cek props profolio", props)
   var repoFront = `https://github-readme-stats.vercel.app/api/pin/?hide_border=true&username=${props.username}&repo=${props.repo}&title_color=bac964&bg_color=333333&text_color=ffffff&icon_color=bac964`
   var repoBack = `https://github-readme-stats.vercel.app/api/pin/?hide_border=true&username=${props.username}&repo=${props.repo}&title_color=333333&bg_color=bac964&text_color=000000&icon_color=333333`
   var title = props.repo

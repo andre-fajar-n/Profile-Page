@@ -82,11 +82,12 @@ class Home extends Component {
             </div>
             <div className="col-md-12 text-center social-media">
               <p>
-                <a href="https://www.facebook.com/an.fa.nu0706/" className="social-item"><span className="icon-facebook2"></span></a>
-                <a href="https://www.instagram.com/andrefajarn/" className="social-item"><span className="icon-instagram2"></span></a>
-                <a href="https://www.linkedin.com/in/andre-fajar-n/" className="social-item"><span className="icon-linkedin2"></span></a>
-                <a href="https://github.com/andre-fajar-n/" className="social-item"><span className="icon-github"></span></a>
-                <a href="mailto:andrenugroho395@gmail.com" className="social-item"><span className="icon-email"></span></a>
+                <a href="https://www.facebook.com/an.fa.nu0706/" className="social-item"><i className="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/andrefajarn/" className="social-item"><i className="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/andre-fajar-n/" className="social-item"><i className="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/andre-fajar-n/" className="social-item"><i className="fab fa-github"></i></a>
+                <a href="mailto:andrenugroho395@gmail.com" className="social-item"><i className="far fa-envelope"></i></a>
+                <a href="https://www.hackerrank.com/afajar" className="social-item"><i className="fab fa-hackerrank"></i></a>
               </p>
             </div>
           </div>
@@ -128,17 +129,32 @@ class Home extends Component {
           <div className="container">
             <div className="row">
               <div className="section-heading text-center col-md-12">
-                <h2>Featured <strong>Portfolio</strong></h2>
+                <h2>My <strong>Portfolio</strong></h2>
               </div>
             </div>
 
             <ul className="nav nav-tabs" id="myTab" role="tablist">
               <li className="nav-item" role="presentation">
-                <a className="nav-link portfolio active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
+                <a
+                  className="nav-link portfolio active"
+                  id="all-tab"
+                  data-toggle="tab"
+                  href="#all"
+                  role="tab"
+                  aria-controls="all"
+                  aria-selected="true"
+                >All</a>
               </li>
               {categories.map((value) => (
-                <li className="nav-item portfolio" key={value} role="presentation">
-                  <a className="nav-link" id={`${value}-tab`} data-toggle="tab" href={`#${value}`} role="tab" aria-controls={`${value}`} aria-selected="false">{value}</a>
+                <li className="nav-item" key={value} role="presentation">
+                  <a className="nav-link portfolio"
+                    id={`${value}-tab`}
+                    data-toggle="tab"
+                    href={`#${value}`}
+                    role="tab"
+                    aria-controls={`${value}`}
+                    aria-selected="false"
+                  >{value.replace(/-/gi, " ")}</a>
                 </li>
               ))}
             </ul>
