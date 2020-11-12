@@ -9,7 +9,7 @@ const Skills = (props) => {
     <div className="skills">
       <h3><strong>{subTitle}</strong></h3>
       {dataIcon.map((value, idx) => (
-        <a href={value.url} key={idx} target="blank" className="mr-3 ml-3">
+        <a href={value.url} key={idx} target="blank" className="link-skils">
           <img className="logo" src={value.image} alt="a" />
         </a>
       ))}

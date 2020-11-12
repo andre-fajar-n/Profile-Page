@@ -1,5 +1,5 @@
 .skills{
-    margin-bottom: 50px;
+    margin: 20px 0;
 }
 
 .logo{
@@ -12,6 +12,26 @@
     margin: 10px 0;
     transition: transform 1s;
 }
+
+.link-skils{
+    margin: 10px;
+}
+
 .logo:hover{
     transform: scale(1.15);
+}
+
+@media (max-width:576px){
+    .logo{
+        padding: 5px;
+        margin: 3px 0;
+        height: 50px;
+        width: auto;
+    }
+    .link-skils{
+        margin: 5px;
+    }
+    .skills{
+        margin: 10px 0;
+    }
 }

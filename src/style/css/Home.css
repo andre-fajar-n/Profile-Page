@@ -1,9 +1,13 @@
+/* NAVBAR */
+
+/* FOTO PROFILE */
 #section-home{
     background-image: url("../../images/name.jpg");
     background-size: contain;
     background-color: #9ca9a2;
 }
 
+/* ABOUT */
 .about-info{
     font-weight: 500;
 }
@@ -36,6 +40,13 @@
     transform: translate(-50%, -50%);
 }
 
+.link-cv a{
+    color: #333 !important;
+}
+
+/* EDU & EXP */
+
+/* PORTFOLIO */
 .portfolio.active, .portfolio .active{
     background-color: #bac964 !important;
     color: #000 !important;
@@ -52,4 +63,33 @@
 
 #myTabContent{
     padding-top: 20px;
+}
+
+/* SKILLS */
+#section-skills h2{
+    margin-bottom: 50px;
+}
+
+/* FOOTER */
+
+@media (max-width:992px){
+    /* ABOUT */
+    .link-cv{
+        text-align: center;
+    }
+}
+
+@media (max-width:576px){
+    .site-section{
+        padding: 40px 0;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    /* SKILLS */
+    #section-skills h2{
+        margin-bottom: 20px;
+    }
 }

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Component } from "react";
 import Skills from "../components/Skills";
-import Resume from "../components/EduAndExperience";
+import EduAndExp from "../components/EduAndExperience";
 import Portfolio from "../components/Portfolio";
 import ListEducation from "../data/Education";
 import ListSkills from "../data/Skills";
@@ -72,7 +72,7 @@ class Home extends Component {
                   <li className="d-flex"><span>Zip code:</span> <span>66292</span></li>
                 </ul>
 
-                <p>
+                <p className="link-cv">
                   <a href="https://drive.google.com/file/d/1b7jfB5OMFvovTvi4oHNhdFqhLb3hGRRK/view?usp=sharing"
                     target="blank"
                     className="btn btn-primary px-4 py-2 btn-sm smoothscroll"
@@ -94,7 +94,7 @@ class Home extends Component {
         </section>
         {/* END ABOUT */}
 
-        {/* START RESUME */}
+        {/* START EDU & EXP */}
         <section className="site-section" id="section-education-experience">
           <div className="container">
             <div className="row">
@@ -105,10 +105,10 @@ class Home extends Component {
               </div>
 
               {/* EDUCATION */}
-              <div className="col-md-6">
+              <div className="col-md-6" style={{ borderRight: "1px solid white" }}>
                 <h2 className="mb-5"><strong>Education</strong></h2>
                 {ListEducation.map((value, i) => (
-                  <Resume data={value} key={i} />
+                  <EduAndExp data={value} key={i} />
                 ))}
               </div>
 
@@ -116,13 +116,13 @@ class Home extends Component {
               <div className="col-md-6">
                 <h2 className="mb-5"><strong>Experience</strong></h2>
                 {WorkExperience.map((value, i) => (
-                  <Resume data={value} key={i} />
+                  <EduAndExp data={value} key={i} />
                 ))}
               </div>
             </div>
           </div>
         </section>
-        {/* END RESUME */}
+        {/* END EDU & EXP */}
 
         {/* START PORTFOLIO */}
         <section className="site-section" id="section-portfolio">
@@ -219,7 +219,7 @@ class Home extends Component {
             <div className="row">
               <div className="col-md-12 mb-5">
                 <div className="section-heading text-center">
-                  <h2>My <strong>Skills</strong></h2>
+                  <h2 >My <strong>Skills</strong></h2>
                   {ListSkills.map((value, idx) => (
                     <Skills key={idx} data={value} />
                   ))}
