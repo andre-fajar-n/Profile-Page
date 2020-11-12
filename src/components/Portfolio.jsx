@@ -19,10 +19,10 @@ const Portfolio = (props) => {
               <div className="flip-box">
                 <div className="flip-box-inner">
                   <div className="flip-box-front">
-                    <img className="image img-fluid no-hover" src={repoFront} alt="" />
+                    <img className="image img-fluid no-hover" src={repoFront} alt={title} />
                   </div>
                   <div className="flip-box-back">
-                    <img className="image img-fluid hover" src={repoBack} alt="" />
+                    <img className="image img-fluid hover" src={repoBack} alt={title} />
                   </div>
                 </div>
               </div>
