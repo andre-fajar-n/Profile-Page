@@ -20,13 +20,24 @@ export const getAllRepos = () => {
                     per_page: 100,
                 }
             })
-            repos = repos.data
-            repos = await getTopics(repos)
-            var filtered = filterByCategories(repos)
+
+            var isRateLimit = false
+            var filtered = {}
+            if (repos.status === 403) {
+                repos = repos.data
+                isRateLimit = true
+            } else {
+                repos = repos.data
+                repos = await getTopics(repos)
+                filtered = filterByCategories(repos)
+            }
+
             data = {
                 "isSuccess": true,
                 "data": repos,
-                "filtered": filtered
+                "filtered": filtered,
+                "isRateLimit": isRateLimit,
+                "message": repos.message,
             }
         } catch (error) {
             data = {

@@ -172,28 +172,16 @@ class Home extends Component {
               </Fragment>
             ) : (
                 <div className="tab-content" id="myTabContent">
-                  <div className="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                    <div className="row">
-                      {this.props.repos.map((repo) => (
-                        <Portfolio
-                          key={repo.full_name}
-                          github={repo.html_url}
-                          demo={repo.homepage}
-                          username={repo.owner.login}
-                          repo={repo.name}
-                        />
-                      ))}
+                  {this.props.isRateLimit ? (
+                    <div>
+                      {this.props.message}
                     </div>
-                  </div>
-                  {categories.map((value) => (
-                    <div className="tab-pane fade" key={value} id={`${value}`} role="tabpanel" aria-labelledby={`${value}`}>
-                      <div className="row">
-                        {this.props.filtered[`${value}`] === undefined ? (
-                          <Fragment>
-                          </Fragment>
-                        ) : (
+                  ) : (
+                      <Fragment>
+                        <div className="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                          <div className="row">
                             <Fragment>
-                              {this.props.filtered[`${value}`].map((repo) => (
+                              {this.props.repos.map((repo) => (
                                 <Portfolio
                                   key={repo.full_name}
                                   github={repo.html_url}
@@ -203,10 +191,32 @@ class Home extends Component {
                                 />
                               ))}
                             </Fragment>
-                          )}
-                      </div>
-                    </div>
-                  ))}
+                          </div>
+                        </div>
+                        {categories.map((value) => (
+                          <div className="tab-pane fade" key={value} id={`${value}`} role="tabpanel" aria-labelledby={`${value}`}>
+                            <div className="row">
+                              {this.props.filtered[`${value}`] === undefined ? (
+                                <Fragment>
+                                </Fragment>
+                              ) : (
+                                  <Fragment>
+                                    {this.props.filtered[`${value}`].map((repo) => (
+                                      <Portfolio
+                                        key={repo.full_name}
+                                        github={repo.html_url}
+                                        demo={repo.homepage}
+                                        username={repo.owner.login}
+                                        repo={repo.name}
+                                      />
+                                    ))}
+                                  </Fragment>
+                                )}
+                            </div>
+                          </div>
+                        ))}
+                      </Fragment>
+                    )}
                 </div>
               )}
           </div>
@@ -252,6 +262,8 @@ const mapStateToProps = (state) => ({
   filtered: state.github.filtered,
   githubSuccess: state.github.isSuccess,
   isLoading: state.github.isLoading,
+  isRateLimit: state.github.isRateLimit,
+  message: state.github.message,
 })
 
 const mapDispatchToProps = {
