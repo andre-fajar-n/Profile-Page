@@ -8,10 +8,12 @@ import ListSkills from "../data/Skills";
 import WorkExperience from "../data/WorkExperience";
 import categories from "../data/Category";
 import "../style/css/Home.css"
-import { getAllRepos } from "../store/action/github";
+import { filterByCategories, getAllRepos } from "../store/action/github";
 import { connect } from "react-redux";
 import { css } from "@emotion/core";
 import { FadeLoader } from "react-spinners";
+import { paginate } from "../utils/paginate";
+import { PaginatePortfolio } from "../components/PaginatePortfolio";
 
 const override = css`
 display: blok;
@@ -22,9 +24,12 @@ border-color: red;
 class Home extends Component {
   componentDidMount = async () => {
     await this.props.getAllRepos()
+    await this.props.filterByCategories()
   }
 
   render() {
+    var reposSlice = paginate(this.props.repos)
+
     return (
       <Fragment>
         {/* START NAVBAR */}
@@ -133,7 +138,7 @@ class Home extends Component {
               </div>
             </div>
 
-            <ul className="nav nav-tabs" id="myTab" role="tablist">
+            <ul className="nav nav-tabs mb-2 justify-content-center" id="myTab" role="tablist" >
               <li className="nav-item" role="presentation">
                 <a
                   className="nav-link portfolio active"
@@ -172,47 +177,24 @@ class Home extends Component {
               </Fragment>
             ) : (
                 <div className="tab-content" id="myTabContent">
-                  {this.props.isRateLimit ? (
+                  {!this.props.githubSuccess ? (
                     <div>
                       {this.props.message}
                     </div>
                   ) : (
                       <Fragment>
                         <div className="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                          <div className="row">
-                            <Fragment>
-                              {this.props.repos.map((repo) => (
-                                <Portfolio
-                                  key={repo.full_name}
-                                  github={repo.html_url}
-                                  demo={repo.homepage}
-                                  username={repo.owner.login}
-                                  repo={repo.name}
-                                />
-                              ))}
-                            </Fragment>
-                          </div>
+                          <PaginatePortfolio data={reposSlice} />
                         </div>
-                        {categories.map((value) => (
-                          <div className="tab-pane fade" key={value} id={`${value}`} role="tabpanel" aria-labelledby={`${value}`}>
-                            <div className="row">
-                              {this.props.filtered[`${value}`] === undefined ? (
-                                <Fragment>
-                                </Fragment>
-                              ) : (
-                                  <Fragment>
-                                    {this.props.filtered[`${value}`].map((repo) => (
-                                      <Portfolio
-                                        key={repo.full_name}
-                                        github={repo.html_url}
-                                        demo={repo.homepage}
-                                        username={repo.owner.login}
-                                        repo={repo.name}
-                                      />
-                                    ))}
-                                  </Fragment>
-                                )}
-                            </div>
+                        {categories.map((category) => (
+                          <div className="tab-pane fade" key={category} id={`${category}`} role="tabpanel" aria-labelledby={`${category}`}>
+                            {this.props.filtered[`${category}`] === undefined ? (
+                              <div>
+                                {this.props.message}
+                              </div>
+                            ) : (
+                                <PaginatePortfolio category={category} data={this.props.filtered[category]} />
+                              )}
                           </div>
                         ))}
                       </Fragment>
@@ -258,16 +240,18 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  repos: state.github.repos,
-  filtered: state.github.filtered,
-  githubSuccess: state.github.isSuccess,
+  repos: state.github.allRepos,
   isLoading: state.github.isLoading,
-  isRateLimit: state.github.isRateLimit,
+  githubSuccess: state.github.isSuccess,
+  githubFilterSuccess: state.github.isLoadingFiltered,
   message: state.github.message,
+  filtered: state.github.filtered,
+  // isRateLimit: state.github.isRateLimit,
 })
 
 const mapDispatchToProps = {
   getAllRepos,
+  filterByCategories,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

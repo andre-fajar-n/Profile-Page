@@ -62,7 +62,10 @@
 }
 
 #myTabContent{
-    padding-top: 20px;
+    padding: 10px;
+    border: 1px solid #bac964;
+    border-radius: 10px;
+
 }
 
 /* SKILLS */
