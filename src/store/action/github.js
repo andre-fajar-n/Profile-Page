@@ -5,50 +5,60 @@ import { paginate } from "../../utils/paginate"
 const githubUrl = "https://api.github.com"
 
 const amountOfRepos = async () => {
-    var result = await axios({
-        method: "GET",
-        url: githubUrl + "/users/andre-fajar-n",
-        headers: {
-            Accept: "application/vnd.github.scarlet-witch-preview+json",
-        },
-    })
-
-    var userData = result.data
-    return userData.public_repos
+    var result
+    try {
+        result = await axios({
+            method: "GET",
+            url: githubUrl + "/users/andre-fajar-n",
+            headers: {
+                Accept: "application/vnd.github.scarlet-witch-preview+json",
+            },
+        })
+        var userData = result.data
+        return userData.public_repos
+    } catch (error) {
+        console.error("AMOUNT OF REPOS", error)
+        return -1
+    }
 }
 
 export const getAllRepos = () => {
     return async (dispatch) => {
         var data = []
         var amountOfRepo = await amountOfRepos()
-        var perPage = 100
-        var page = 0
         var err
+        if (amountOfRepo === -1) {
+            err = "error"
+        } else {
+            var perPage = 100
+            var page = 0
 
-        while (page * perPage <= amountOfRepo) {
-            try {
-                var response = await axios({
-                    method: "GET",
-                    url: githubUrl + "/users/andre-fajar-n/repos",
-                    headers: {
-                        Accept: "application/vnd.github.scarlet-witch-preview+json",
-                    },
-                    params: {
-                        sort: "updated",
-                        direction: "desc",
-                        page: page + 1,
-                        per_page: perPage,
-                    }
-                })
+            while (page * perPage <= amountOfRepo) {
+                try {
+                    var response = await axios({
+                        method: "GET",
+                        url: githubUrl + "/users/andre-fajar-n/repos",
+                        headers: {
+                            Accept: "application/vnd.github.scarlet-witch-preview+json",
+                        },
+                        params: {
+                            sort: "updated",
+                            direction: "desc",
+                            page: page + 1,
+                            per_page: perPage,
+                        }
+                    })
 
-                var repos = response.data
-                repos = await addTopics(repos)
-                data = [...data, ...repos]
-                page++
-            } catch (error) {
-                err = error
-                console.warn("error", error)
-                break
+                    var repos = response.data
+                    repos = await addTopics(repos)
+                    data = [...data, ...repos]
+                    page++
+                    console.warn("ERROR")
+                } catch (error) {
+                    err = error
+                    console.warn("error", error)
+                    break
+                }
             }
         }
 

@@ -15,7 +15,7 @@ export default function githubReducer(githubState = initialGithub, action) {
                 ...githubState,
                 isSuccess: false,
                 isLoading: false,
-                message: "Cannot get data from Github's API. Maybe reach rate limit or something else",
+                message: "Cannot get data from Github's API. Maybe reach rate limit or something else. Please try again later.",
                 error: action.payload,
             }
         case "GITHUB_REPO_SUCCESS":
@@ -28,7 +28,6 @@ export default function githubReducer(githubState = initialGithub, action) {
         case "FILTERED":
             return {
                 ...githubState,
-                isSuccess: true,
                 isLoadingFiltered: false,
                 filtered: action.payload,
             }

@@ -8,6 +8,9 @@
 }
 
 /* EDU & EXP */
+#education{
+    border-right: 1px solid #fff;
+}
 
 /* PORTFOLIO */
 .portfolio.active, .portfolio .active{
@@ -52,5 +55,11 @@
     /* SKILLS */
     #section-skills h2{
         margin-bottom: 20px;
+    }
+}
+
+@media (max-width:768px){
+    #education{
+        border-right: none;
     }
 }

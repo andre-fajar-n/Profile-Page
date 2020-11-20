@@ -41,8 +41,6 @@ class Home extends Component {
         </section>
         {/* END FOTO PROFILE */}
 
-        <Link to="/about">ABOUT</Link>
-
         {/* START EDU & EXP */}
         <section className="site-section" id="section-education-experience">
           <div className="container">
@@ -54,7 +52,7 @@ class Home extends Component {
               </div>
 
               {/* EDUCATION */}
-              <div className="col-md-6" style={{ borderRight: "1px solid white" }}>
+              <div className="col-md-6" id="education" >
                 <h2 className="mb-5"><strong>Education</strong></h2>
                 {ListEducation.map((value, i) => (
                   <EduAndExp data={value} key={i} />
@@ -122,7 +120,7 @@ class Home extends Component {
             ) : (
                 <div className="tab-content" id="myTabContent">
                   {!this.props.githubSuccess ? (
-                    <div>
+                    <div style={{ textAlign: "center" }}>
                       {this.props.message}
                     </div>
                   ) : (
@@ -179,7 +177,6 @@ const mapStateToProps = (state) => ({
   githubFilterSuccess: state.github.isLoadingFiltered,
   message: state.github.message,
   filtered: state.github.filtered,
-  // isRateLimit: state.github.isRateLimit,
 })
 
 const mapDispatchToProps = {

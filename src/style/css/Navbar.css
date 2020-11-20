@@ -1,0 +1,12 @@
+.navbar-list{
+    display: flex;
+    list-style: none;
+}
+
+.navbar-list .nav-item .nav-link{
+    color: #fff;
+}
+
+.site-navbar .scrolled {
+    color: #000 !important;
+}
