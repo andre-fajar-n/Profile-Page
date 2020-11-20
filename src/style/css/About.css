@@ -1,0 +1,24 @@
+/* ABOUT */
+.about-info{
+    font-weight: 500;
+}
+
+.about-info li span{
+    width: calc(100% - 130px);
+}
+
+.about-info li span:first-child{
+    width: 130px;
+    color: #fff;
+}
+
+.link-cv a{
+    color: #333 !important;
+}
+
+@media (max-width:992px){
+    /* ABOUT */
+    .link-cv{
+        text-align: center;
+    }
+}

@@ -1,0 +1,25 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+export const Navbar = () => {
+  return (
+    <nav className="navbar navbar-expand-lg site-navbar navbar-light bg-light" id="pb-navbar">
+
+      <div className="container">
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample09">
+          <ul className="navbar-nav">
+            <li className="nav-item"><Link to="#section-home" className="nav-link">Home</Link></li>
+            <li className="nav-item"><Link to="#section-about" className="nav-link" >About</Link></li>
+            <li className="nav-item"><Link to="/edu" className="nav-link">Education & Experience</Link></li>
+            <li className="nav-item"><Link to="/portfolio" className="nav-link">Portfolio</Link></li>
+            <li className="nav-item"><Link to="/skill" className="nav-link">Skills</Link></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  )
+}

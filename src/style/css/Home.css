@@ -7,43 +7,6 @@
     background-color: #9ca9a2;
 }
 
-/* ABOUT */
-.about-info{
-    font-weight: 500;
-}
-
-.about-info li span{
-    width: calc(100% - 130px);
-}
-
-.about-info li span:first-child{
-    width: 130px;
-    color: #fff;
-}
-
-.social-media .social-item {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    background: #333;
-    position: relative;
-    border-radius: 50%;
-    font-size: 22px;
-    margin: 0 10px;
-}
-.social-media .social-item > i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.link-cv a{
-    color: #333 !important;
-}
-
 /* EDU & EXP */
 
 /* PORTFOLIO */
@@ -75,12 +38,7 @@
 
 /* FOOTER */
 
-@media (max-width:992px){
-    /* ABOUT */
-    .link-cv{
-        text-align: center;
-    }
-}
+
 
 @media (max-width:576px){
     .site-section{

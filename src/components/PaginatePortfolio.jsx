@@ -19,10 +19,8 @@ export const PaginatePortfolio = (props) => {
           <li key={id} className="nav-item">
             <a className="nav-link" id={`pills-${id}${category}-tab`} data-toggle="pill" href={`#pills-${id}${category}`} role="tab" aria-controls={`pills-${id}${category}`} aria-selected="false">{id + 2}</a>
           </li>
-
         ))}
       </ul>
-
 
       <div className="tab-content" id="pills-tabContent">
         <div className="tab-pane fade show active" id={`pills-home${category}`} role="tabpanel" aria-labelledby={`pills-home${category}-tab`}>
