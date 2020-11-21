@@ -1,12 +1,9 @@
-.navbar-list{
-    display: flex;
-    list-style: none;
-}
+@media (max-width:992px){
+    #navbarsExample09 {
+        text-align: end;
+    }
 
-.navbar-list .nav-item .nav-link{
-    color: #fff;
-}
-
-.site-navbar .scrolled {
-    color: #000 !important;
+    #navbarsExample09 .nav-link{
+        padding-right: 0px !important;
+    }
 }

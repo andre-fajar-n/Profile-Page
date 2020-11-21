@@ -1,0 +1,13 @@
+.site-section {
+    padding: 120px 0;
+}
+
+@media (max-width:992px){
+    .site-section{
+        padding: 100px 0;
+    }
+
+    h2{
+        text-align: center;
+    }
+}

@@ -53,7 +53,6 @@ export const getAllRepos = () => {
                     repos = await addTopics(repos)
                     data = [...data, ...repos]
                     page++
-                    console.warn("ERROR")
                 } catch (error) {
                     err = error
                     console.warn("error", error)

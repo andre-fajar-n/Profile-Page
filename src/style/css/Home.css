@@ -44,14 +44,6 @@
 
 
 @media (max-width:576px){
-    .site-section{
-        padding: 40px 0;
-    }
-
-    h2{
-        text-align: center;
-    }
-
     /* SKILLS */
     #section-skills h2{
         margin-bottom: 20px;
