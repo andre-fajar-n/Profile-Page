@@ -3,6 +3,30 @@ import categories from "../../data/Category"
 import { paginate } from "../../utils/paginate"
 
 const githubUrl = "https://api.github.com"
+const token = process.env.REACT_APP_GITHUB_TOKEN
+
+export const rateLimit = () => {
+    return async (dispatch) => {
+        var result
+        try {
+            result = await axios({
+                method: "GET",
+                url: githubUrl + "/rate_limit",
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+
+            var dataRate = result.data
+            dispatch({
+                type: "RATE_LIMIT",
+                payload: dataRate.rate,
+            })
+        } catch (error) {
+            console.error("RATE LIMIT", error)
+        }
+    }
+}
 
 const amountOfRepos = async () => {
     var result
@@ -12,6 +36,7 @@ const amountOfRepos = async () => {
             url: githubUrl + "/users/andre-fajar-n",
             headers: {
                 Accept: "application/vnd.github.scarlet-witch-preview+json",
+                Authorization: `Bearer ${token}`
             },
         })
         var userData = result.data
@@ -24,6 +49,7 @@ const amountOfRepos = async () => {
 
 export const getAllRepos = () => {
     return async (dispatch) => {
+        // await RateLimit()
         var data = []
         var amountOfRepo = await amountOfRepos()
         var err
@@ -40,6 +66,7 @@ export const getAllRepos = () => {
                         url: githubUrl + "/users/andre-fajar-n/repos",
                         headers: {
                             Accept: "application/vnd.github.scarlet-witch-preview+json",
+                            Authorization: `Bearer ${token}`
                         },
                         params: {
                             sort: "updated",
@@ -60,7 +87,7 @@ export const getAllRepos = () => {
                 }
             }
         }
-
+        // await RateLimit()
         if (data.length === 0) {
             dispatch({
                 type: "DATA_REPOS_ZERO",
@@ -82,6 +109,7 @@ const addTopics = async (repos) => {
             url: githubUrl + "/repos/" + repo.full_name + "/topics",
             headers: {
                 Accept: "application/vnd.github.mercy-preview+json",
+                Authorization: `Bearer ${token}`
             }
         })
         repo["topics"] = topics.data.names

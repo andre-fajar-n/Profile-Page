@@ -5,7 +5,8 @@ const initialGithub = {
     allRepos: [],
     filtered: {},
     message: "",
-    error: ""
+    error: "",
+    rateLimit: {},
 }
 
 export default function githubReducer(githubState = initialGithub, action) {
@@ -30,6 +31,11 @@ export default function githubReducer(githubState = initialGithub, action) {
                 ...githubState,
                 isLoadingFiltered: false,
                 filtered: action.payload,
+            }
+        case "RATE_LIMIT":
+            return {
+                ...githubState,
+                rateLimit: action.payload,
             }
         default:
             return githubState

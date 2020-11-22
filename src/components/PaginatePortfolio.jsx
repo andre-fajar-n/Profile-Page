@@ -1,6 +1,6 @@
 import React from "react"
 import { Fragment } from "react"
-import Portfolio from "./Portfolio"
+import { EachPortfolio } from "./EachPortfolio"
 
 export const PaginatePortfolio = (props) => {
   var category = ""
@@ -26,7 +26,7 @@ export const PaginatePortfolio = (props) => {
         <div className="tab-pane fade show active" id={`pills-home${category}`} role="tabpanel" aria-labelledby={`pills-home${category}-tab`}>
           <div className="row justify-content-center">
             {firstData.map((repo) => (
-              <Portfolio
+              <EachPortfolio
                 key={repo.full_name}
                 github={repo.html_url}
                 demo={repo.homepage}
@@ -40,7 +40,7 @@ export const PaginatePortfolio = (props) => {
           <div key={id} className="tab-pane fade" id={`pills-${id}${category}`} role="tabpanel" aria-labelledby={`pills-${id}${category}-tab`}>
             <div className="row justify-content-center">
               {data.map((repo) => (
-                <Portfolio
+                <EachPortfolio
                   key={repo.full_name}
                   github={repo.html_url}
                   demo={repo.homepage}

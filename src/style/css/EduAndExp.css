@@ -22,3 +22,18 @@
 .resume-item:hover .date, .resume-item:hover .school{
     color: #bac964;
 }
+
+#section-education-experience{
+    /* padding-bottom: 40px !important; */
+}
+
+/* EDU & EXP */
+#education{
+    border-right: 1px solid #fff;
+}
+
+@media (max-width:768px){
+    #education{
+        border-right: none;
+    }
+}

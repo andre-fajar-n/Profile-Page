@@ -16,9 +16,29 @@
     color: #333 !important;
 }
 
+/* SKILLS */
+#section-skills h2{
+    margin-bottom: 50px;
+}
+
+.skill-section{
+    padding-top: 30px !important;
+}
+
+.about-section{
+    padding-bottom: 30px !important;
+}
+
 @media (max-width:992px){
     /* ABOUT */
     .link-cv{
         text-align: center;
+    }
+}
+
+@media (max-width:576px){
+    /* SKILLS */
+    #section-skills h2{
+        margin-bottom: 20px;
     }
 }

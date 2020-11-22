@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
-    "@vercel/node": "^1.8.5"
+    "@vercel/node": "^1.8.5",
+    "dotenv": "^8.2.0"
   }
 }

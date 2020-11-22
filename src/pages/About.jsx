@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import { Component } from "react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+import Skills from "../components/Skills";
+import ListSkills from "../data/Skills";
 import "../style/css/About.css"
 
 class About extends Component {
@@ -11,7 +13,7 @@ class About extends Component {
         <Navbar />
 
         {/* START ABOUT */}
-        <section className="site-section" id="section-about">
+        <section className="site-section about-section" id="section-about">
           <div className="container">
             <div className="row mb-5 align-items-center">
               <div className="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
@@ -41,6 +43,23 @@ class About extends Component {
           </div>
         </section>
         {/* END ABOUT */}
+
+        {/* START SKILLS */}
+        <section className="site-section skill-section" id="section-skills">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12 mb-5">
+                <div className="section-heading text-center">
+                  <h2 >My <strong>Skills</strong></h2>
+                  {ListSkills.map((value, idx) => (
+                    <Skills key={idx} data={value} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* END SKILLS */}
 
         <Footer />
       </Fragment>
