@@ -104,14 +104,15 @@ class Portfolio extends Component {
           </div>
         </section>
 
-        <div className="limit">
+        {/* <div className="limit">
           Rate Limit Github API: {this.props.githubRateLimit.limit}
         </div>
         <div className="used">
           Used: {this.props.githubRateLimit.used}
-        </div>
-        <div className="remaining">
-          Remaining: {this.props.githubRateLimit.remaining}
+        </div> */}
+        <div className="rate-limit">
+          <strong>{this.props.githubRateLimit.remaining}</strong> request(s) left<br />
+          before rate-limit
         </div>
 
         <Footer />
