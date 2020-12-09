@@ -104,15 +104,8 @@ class Portfolio extends Component {
           </div>
         </section>
 
-        {/* <div className="limit">
-          Rate Limit Github API: {this.props.githubRateLimit.limit}
-        </div>
-        <div className="used">
-          Used: {this.props.githubRateLimit.used}
-        </div> */}
         <div className="rate-limit">
-          <strong>{this.props.githubRateLimit.remaining}</strong> request(s) left<br />
-          before rate-limit
+          <strong>{this.props.githubRateLimit.remaining}</strong> request(s) left before rate-limit
         </div>
 
         <Footer />
@@ -120,7 +113,6 @@ class Portfolio extends Component {
     )
   }
 }
-
 
 const mapStateToProps = (state) => ({
   repos: state.github.allRepos,

@@ -5,6 +5,7 @@ import About from "../pages/About";
 import EduAndExp from "../pages/EduAndExp";
 import Home from "../pages/Home";
 import Portfolio from "../pages/Portfolio";
+import Stats from "../pages/Stats";
 import store from "../store";
 import "../style/css/MainRoutes.css"
 
@@ -18,6 +19,7 @@ class Routes extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/edu_exp" component={EduAndExp} />
             <Route exact path="/portfolio" component={Portfolio} />
+            <Route exact path="/stats" component={Stats} />
           </Switch>
         </BrowserRouter>
       </Provider>
