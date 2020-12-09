@@ -1,5 +1,7 @@
 import React from "react";
 import "../style/css/Footer.css"
+import { getBuildDate } from "../utils/utils";
+import packageJson from "../../package.json";
 
 export const Footer = () => {
   return (
@@ -19,7 +21,8 @@ export const Footer = () => {
           </div>
           <p className="col-12 text-center">
             {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
-      Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i className="icon-heart text-danger" aria-hidden="true" ></i> by <a href="https://colorlib.com" target="blank" className="text-primary">Colorlib</a>
+      Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i className="icon-heart text-danger" aria-hidden="true" ></i> by <a href="https://colorlib.com" target="blank" className="text-primary">Colorlib</a><br />
+            <strong>Build date: {getBuildDate(packageJson.buildDate)}</strong>
             {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
           </p>
         </div>

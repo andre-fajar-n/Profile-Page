@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import withClearCache from "../ClearCache";
 import About from "../pages/About";
 import EduAndExp from "../pages/EduAndExp";
 import Home from "../pages/Home";
@@ -9,7 +10,7 @@ import Stats from "../pages/Stats";
 import store from "../store";
 import "../style/css/MainRoutes.css"
 
-class Routes extends Component {
+class MainRoutes extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -25,6 +26,12 @@ class Routes extends Component {
       </Provider>
     )
   }
+}
+
+const ClearCacheComponent = withClearCache(MainRoutes);
+
+function Routes() {
+  return <ClearCacheComponent />
 }
 
 export default Routes;
