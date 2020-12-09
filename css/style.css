@@ -46,7 +46,7 @@ a {
     color: #b2c251;
     text-decoration: none; }
 
-.parent-nav-link-padding, .site-navbar .navbar-nav > li > a {
+.parent-nav-link-padding, .site-navbar .navbar-list > li > a {
   padding: 15px 20px !important; }
 
 .site-navbar {
@@ -82,7 +82,7 @@ a {
           border: 2px solid #000;
           padding: 2px 10px !important;
           color: #000; } }
-  .site-navbar .navbar-nav > li > a {
+  .site-navbar .navbar-list > li > a {
     color: #fff !important;
     font-size: 14px;
     font-weight: 400;
@@ -91,9 +91,9 @@ a {
     text-transform: uppercase;
     letter-spacing: .2em; }
     @media (max-width: 991.98px) {
-      .site-navbar .navbar-nav > li > a {
+      .site-navbar .navbar-list > li > a {
         color: rgba(0, 0, 0, 0.7) !important; } }
-  .site-navbar .navbar-nav.active > a {
+  .site-navbar .navbar-list.active > a {
     color: #bac964 !important; }
   .site-navbar.scrolled {
     background: #fff;
@@ -108,7 +108,9 @@ a {
     -ms-transform: translateY(0%);
     transform: translateY(0%); }
     .site-navbar.scrolled.bg-light {
-      background: #fff !important; }
+      background: #fff !important;
+      color: #000 !important;
+    }
     .site-navbar.scrolled .navbar-brand {
       display: inline-block;
       font-size: 18px;
@@ -132,13 +134,13 @@ a {
       color: #000; }
     .site-navbar.scrolled .dropdown > a:before {
       color: rgba(0, 0, 0, 0.4); }
-    .site-navbar.scrolled .navbar-nav > li > a {
+    .site-navbar.scrolled .navbar-list > li > a {
       color: rgba(0, 0, 0, 0.7) !important; }
-      .site-navbar.scrolled .navbar-nav > li > a:hover {
+      .site-navbar.scrolled .navbar-list > li > a:hover {
         color: #bac964 !important; }
-      .site-navbar.scrolled .navbar-nav > li > a.active {
+      .site-navbar.scrolled .navbar-list > li > a.active {
         color: #bac964 !important; }
-    .site-navbar.scrolled .navbar-nav > li.active > a {
+    .site-navbar.scrolled .navbar-list > li.active > a {
       color: #bac964 !important; }
 
 .site-hero {
@@ -179,8 +181,8 @@ a {
     margin: 0 auto;
     color: rgba(255, 255, 255, 0.5); }
 
-.site-section {
-  padding: 5em 0; }
+/* .site-section {
+  padding: 5em 0; } */
 
 .section-heading {
   margin-bottom: 30px;
