@@ -30,6 +30,7 @@ export const rateLimit = () => {
 
 const amountOfRepos = async () => {
     var result
+    rateLimit()
     try {
         result = await axios({
             method: "GET",
@@ -49,7 +50,6 @@ const amountOfRepos = async () => {
 
 export const getAllRepos = () => {
     return async (dispatch) => {
-        // await RateLimit()
         var data = []
         var amountOfRepo = await amountOfRepos()
         var err
@@ -61,6 +61,7 @@ export const getAllRepos = () => {
 
             while (page * perPage <= amountOfRepo) {
                 try {
+                    rateLimit()
                     var response = await axios({
                         method: "GET",
                         url: githubUrl + "/users/andre-fajar-n/repos",
@@ -77,7 +78,6 @@ export const getAllRepos = () => {
                     })
 
                     var repos = response.data
-                    repos = await addTopics(repos)
                     data = [...data, ...repos]
                     page++
                 } catch (error) {
@@ -102,19 +102,22 @@ export const getAllRepos = () => {
     }
 }
 
-const addTopics = async (repos) => {
-    for (var repo of repos) {
-        var topics = await axios({
+const addTopics = async (repoName) => {
+    var topics
+    try {
+        var response = await axios({
             method: "GET",
-            url: githubUrl + "/repos/" + repo.full_name + "/topics",
+            url: githubUrl + "/repos/" + repoName + "/topics",
             headers: {
                 Accept: "application/vnd.github.mercy-preview+json",
                 Authorization: `Bearer ${token}`
             }
         })
-        repo["topics"] = topics.data.names
+        topics = response.data.names
+    } catch (error) {
+        console.error(error)
     }
-    return repos
+    return topics
 }
 
 export const filterByCategories = () => {
@@ -125,6 +128,11 @@ export const filterByCategories = () => {
             resultFilter[`${category}`] = []
             var slice = []
             for (var repo of allRepos) {
+                // get topics in each repo
+                var topics = await addTopics(repo.full_name)
+                repo["topics"] = topics
+
+                // separated by category
                 if (repo.topics.includes(category.toLocaleLowerCase())) {
                     slice.push(repo)
                 }

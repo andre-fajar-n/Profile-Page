@@ -1,9 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from "redux"
 import thunk from "redux-thunk"
 import githubReducer from "./reducer/github"
+import { statsReducer } from "./reducer/stats"
 
 const rootReducer = combineReducers({
     github: githubReducer,
+    stats: statsReducer,
 })
 
 const store = createStore(rootReducer, applyMiddleware(thunk))

@@ -33,9 +33,3 @@
     border-radius: 10px;
 
 }
-
-@media (max-width:560px){
-    .rate-limit {
-        font-size: 12px;
-    }
-}

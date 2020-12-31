@@ -1,20 +1,14 @@
 import React, { Component, Fragment } from "react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
-import { css } from "@emotion/core";
-import { FadeLoader } from "react-spinners";
 import { paginate } from "../utils/paginate";
 import { PaginatePortfolio } from "../components/PaginatePortfolio";
 import categories from "../data/Category";
 import { filterByCategories, getAllRepos, rateLimit } from "../store/action/github";
 import { connect } from "react-redux";
 import "../style/css/Portfolio.css"
-
-const override = css`
-display: blok;
-margin: 0 auto;
-border-color: red;
-`;
+import { Loading } from "../components/Loading";
+import { RateLimit } from "../components/RateLimit";
 
 class Portfolio extends Component {
   componentDidMount = async () => {
@@ -66,14 +60,7 @@ class Portfolio extends Component {
 
             {this.props.isLoading ? (
               <Fragment>
-                <FadeLoader
-                  css={override}
-                  height={50}
-                  width={10}
-                  radius={25}
-                  margin={50}
-                  color={"#bac964"}
-                />
+                <Loading />
               </Fragment>
             ) : (
                 <div className="tab-content" id="myTabContent">
@@ -88,10 +75,8 @@ class Portfolio extends Component {
                         </div>
                         {categories.map((category) => (
                           <div className="tab-pane fade" key={category} id={`${category}`} role="tabpanel" aria-labelledby={`${category}`}>
-                            {this.props.filtered[`${category}`] === undefined ? (
-                              <div>
-                                {this.props.message}
-                              </div>
+                            {this.props.isLoadingFiltered ? (
+                              <Loading />
                             ) : (
                                 <PaginatePortfolio category={category} data={this.props.filtered[category]} />
                               )}
@@ -104,9 +89,10 @@ class Portfolio extends Component {
           </div>
         </section>
 
-        <div className="rate-limit">
+        <RateLimit rateLimit={this.props.githubRateLimit.remaining} />
+        {/* <div className="rate-limit">
           <strong>{this.props.githubRateLimit.remaining}</strong> request(s) left before rate-limit
-        </div>
+        </div> */}
 
         <Footer />
       </Fragment>
@@ -118,7 +104,7 @@ const mapStateToProps = (state) => ({
   repos: state.github.allRepos,
   isLoading: state.github.isLoading,
   githubSuccess: state.github.isSuccess,
-  githubFilterSuccess: state.github.isLoadingFiltered,
+  isLoadingFiltered: state.github.isLoadingFiltered,
   message: state.github.message,
   filtered: state.github.filtered,
   githubRateLimit: state.github.rateLimit,
