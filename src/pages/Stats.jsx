@@ -45,12 +45,14 @@ class Stats extends Component {
                     <Pie
                       data={forksPerRepo.data}
                       options={forksPerRepo.options}
+                      height={300}
                     />
                   </div>
                   <div className="col-md-6">
                     <Pie
                       data={starsPerRepo.data}
                       options={starsPerRepo.options}
+                      height={300}
                     />
                   </div>
                 </div>
@@ -59,12 +61,14 @@ class Stats extends Component {
                     <Pie
                       data={commitsPerRepo.data}
                       options={commitsPerRepo.options}
+                      height={300}
                     />
                   </div>
                   <div className="col-md-6">
                     <Pie
                       data={repoPerLanguage.data}
                       options={repoPerLanguage.options}
+                      height={300}
                     />
                   </div>
                 </div>

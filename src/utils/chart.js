@@ -25,8 +25,6 @@ export const pieChart = (title, data, isSlice = false) => {
             'aqua',
             'greenyellow'
           ],
-          // hoverBackgroundColor: [
-          // ],
           data: datasets
         }
       ]
