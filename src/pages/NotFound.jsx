@@ -6,7 +6,6 @@ class NotFound extends Component {
   render() {
     return (
       <section id="not-found">
-        <div id="title">Simple Pure CSS3 &bull; 404 Error Page</div>
         <div className="circles">
           <p>404<br />
             <small>PAGE NOT FOUND</small>
