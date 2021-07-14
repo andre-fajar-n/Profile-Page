@@ -3,27 +3,27 @@ const language = {
     "data": [
         {
             "name": "Python",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/python/python-original.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/Python.png",
             "url": "https://www.python.org",
         },
         {
             "name": "Javascript",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/javascript/javascript-original.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/Javascript.svg",
             "url": "https://www.javascript.com",
         },
         {
             "name": "Golang",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/go/go-original.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/Golang.png",
             "url": "https://golang.org/",
         },
         {
             "name": "C++",
-            "image": "https://devicon.dev/devicon.git/icons/cplusplus/cplusplus-original.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/Cpp.png",
             "url": "http://www.cplusplus.com/",
         },
         {
             "name": "C",
-            "image": "https://devicon.dev/devicon.git/icons/c/c-original.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/C.svg",
             "url": "https://www.cprogramming.com/",
         },
     ]
@@ -65,32 +65,32 @@ const frontend = {
     "data": [
         {
             "name": "ReactJS",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/React.png",
             "url": "https://reactjs.org/",
         },
         {
             "name": "Redux",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/redux/redux-original.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/Redux.png",
             "url": "https://redux.js.org/",
         },
         {
             "name": "HTML",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/HTML.svg",
             "url": "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5",
         },
         {
             "name": "CSS",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/CSS.svg",
             "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS",
         },
         {
             "name": "Bootstrap",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/bootstrap/bootstrap-plain.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/Bootstrap.png",
             "url": "https://getbootstrap.com/docs/4.0/getting-started/introduction/",
         },
         {
             "name": "Less",
-            "image": "https://devicon.dev/devicon.git/icons/less/less-plain-wordmark.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/Less.webp",
             "url": "http://lesscss.org/",
         },
     ]
@@ -101,22 +101,22 @@ const database = {
     "data": [
         {
             "name": "MySQL",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/mysql/mysql-original-wordmark.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/MySQL.png",
             "url": "https://www.mysql.com/",
         },
         {
             "name": "MongoDB",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/mongodb/mongodb-original-wordmark.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/MongoDB.png",
             "url": "https://www.mongodb.com/",
         },
         {
             "name": "Redis",
-            "image": "https://devicon.dev/devicon.git/icons/redis/redis-original-wordmark.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/Redis.png",
             "url": "https://redis.io/",
         },
         {
             "name": "PostgreSQL",
-            "image": "https://devicon.dev/devicon.git/icons/postgresql/postgresql-original-wordmark.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/Postgresql.png",
             "url": "https://www.postgresql.org/",
         },
     ]
@@ -183,7 +183,7 @@ const others = {
         },
         {
             "name": "Docker",
-            "image": "https://devicons.github.io/devicon/devicon.git/icons/docker/docker-original-wordmark.svg",
+            "image": "https://raw.githubusercontent.com/andre-fajar-n/Profile-Page/master/src/images/skills/Docker.svg",
             "url": "https://www.docker.com/",
         },
         {
