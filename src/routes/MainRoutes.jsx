@@ -19,7 +19,7 @@ class MainRoutes extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/edu_exp" component={EduAndExp} />
+            <Route exact path="/edu-exp" component={EduAndExp} />
             <Route exact path="/portfolio" component={Portfolio} />
             <Route exact path="/stats" component={Stats} />
             <Route component={NotFound} />

@@ -39,41 +39,37 @@ class Stats extends Component {
           {this.props.isLoading ? (
             <Loading />
           ) : (
-              <Fragment>
-                <div className="row">
-                  <div className="col-md-6">
-                    <Pie
-                      data={forksPerRepo.data}
-                      options={forksPerRepo.options}
-                      height={300}
-                    />
-                  </div>
-                  <div className="col-md-6">
-                    <Pie
-                      data={starsPerRepo.data}
-                      options={starsPerRepo.options}
-                      height={300}
-                    />
-                  </div>
+            <Fragment>
+              <div className="row">
+                <div className="col-md-6 chart">
+                  <Pie
+                    data={forksPerRepo.data}
+                    options={forksPerRepo.options}
+                  />
                 </div>
-                <div className="row">
-                  <div className="col-md-6">
-                    <Pie
-                      data={commitsPerRepo.data}
-                      options={commitsPerRepo.options}
-                      height={300}
-                    />
-                  </div>
-                  <div className="col-md-6">
-                    <Pie
-                      data={repoPerLanguage.data}
-                      options={repoPerLanguage.options}
-                      height={300}
-                    />
-                  </div>
+                <div className="col-md-6 chart">
+                  <Pie
+                    data={starsPerRepo.data}
+                    options={starsPerRepo.options}
+                  />
                 </div>
-              </Fragment>
-            )}
+              </div>
+              <div className="row">
+                <div className="col-md-6 chart">
+                  <Pie
+                    data={commitsPerRepo.data}
+                    options={commitsPerRepo.options}
+                  />
+                </div>
+                <div className="col-md-6 chart">
+                  <Pie
+                    data={repoPerLanguage.data}
+                    options={repoPerLanguage.options}
+                  />
+                </div>
+              </div>
+            </Fragment>
+          )}
         </section>
 
         <RateLimit rateLimit={this.props.githubRateLimit.remaining} />

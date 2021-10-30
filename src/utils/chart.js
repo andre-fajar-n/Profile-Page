@@ -1,9 +1,11 @@
 export const pieChart = (title, data, isSlice = false) => {
-  var datasets = data.data
+  var data1 = data.data
   var labels = data.label
 
+  var position = "top"
+
   if (isSlice) {
-    datasets = datasets.slice(0, 10)
+    data1 = data1.slice(0, 10)
     labels = labels.slice(0, 10)
   }
 
@@ -25,7 +27,7 @@ export const pieChart = (title, data, isSlice = false) => {
             'aqua',
             'greenyellow'
           ],
-          data: datasets
+          data: data1,
         }
       ]
     },
@@ -34,11 +36,23 @@ export const pieChart = (title, data, isSlice = false) => {
         display: true,
         text: title,
         fontSize: 20,
+        fontColor: "#fff"
       },
       legend: {
-        display: true,
-        position: 'left'
-      }
+        position,
+        labels: {
+          fontColor: "#fff"
+        }
+      },
+      layout: {
+        padding: {
+          left: 30,
+          right: 30,
+          top: 30,
+          bottom: 30,
+        },
+      },
+      maintainAspectRatio: false
     }
   }
 }
