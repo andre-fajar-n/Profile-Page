@@ -2,17 +2,32 @@
     display: inline-block;
     width: 60px;
     height: 60px;
-    background: #333;
+    background: #B4ADEA;
     position: relative;
     border-radius: 50%;
     font-size: 22px;
     margin: 0 10px;
 }
 .social-media .social-item > i {
+    color: #50514F;
     position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+.site-footer p {
+    color: #50514F;
+    font-weight: 600;
+}
+
+.text-primary {
+    color: #B4ADEA !important;
+    font-weight: 600;
+}
+
+.text-primary:hover {
+    color: #B4ADDA !important;
 }

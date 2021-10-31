@@ -1,6 +1,20 @@
 /* ABOUT */
+/* #section-about {
+    background-color: #59FFA0;
+} */
+
+.section-heading h2 {
+    padding: 10px 0;
+    color: #50514F;
+    font-weight: 500;
+    border: 2px solid;
+    border-radius: 50px;
+    background-color: #FFED65;
+}
+
 .about-info{
     font-weight: 500;
+    color: #50514F;
 }
 
 .about-info li span{
@@ -9,11 +23,28 @@
 
 .about-info li span:first-child{
     width: 130px;
-    color: #fff;
+    color: #50514F;
+    font-weight: 700;
+}
+
+.btn {
+    border: 2px solid #50514F;
+    background: #59FFA0;
+    font-weight: 600;
 }
 
 .link-cv a{
-    color: #333 !important;
+    color: #50514F !important;
+}
+
+.link-cv a:hover {
+    color: #59FFA0 !important;
+}
+
+.link-cv a.btn:hover {
+    background: #50514F;
+    border-color: #50514F;
+    color: #59FFA0;
 }
 
 /* SKILLS */

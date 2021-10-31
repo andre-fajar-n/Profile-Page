@@ -34,7 +34,7 @@ const amountOfRepos = async () => {
     try {
         result = await axios({
             method: "GET",
-            url: githubUrl + "/users/andre-fajar-n",
+            url: githubUrl + "/user",
             headers: {
                 Accept: "application/vnd.github.scarlet-witch-preview+json",
                 Authorization: `Bearer ${token}`
@@ -64,7 +64,7 @@ export const getAllRepos = () => {
                     rateLimit()
                     var response = await axios({
                         method: "GET",
-                        url: githubUrl + "/users/andre-fajar-n/repos",
+                        url: githubUrl + "/user/repos",
                         headers: {
                             Accept: "application/vnd.github.scarlet-witch-preview+json",
                             Authorization: `Bearer ${token}`
@@ -74,10 +74,13 @@ export const getAllRepos = () => {
                             direction: "desc",
                             page: page + 1,
                             per_page: perPage,
+                            visibility: "public",
+                            affiliation: "owner",
                         }
                     })
 
                     var repos = response.data
+                    repos = repos.filter(repo => repo.fork === false)
                     data = [...data, ...repos]
                     page++
                 } catch (error) {

@@ -29,7 +29,7 @@ class EduAndExp extends Component {
               </div>
 
               {/* EXPERIENCE */}
-              <div className="col-md-6">
+              <div className="col-md-6" id="experience">
                 <h2 className="mb-5"><strong>Experience</strong></h2>
                 {WorkExperience.map((value, i) => (
                   <Resume data={value} key={i} />
