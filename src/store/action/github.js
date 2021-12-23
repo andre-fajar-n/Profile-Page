@@ -4,6 +4,7 @@ import { paginate } from "../../utils/paginate"
 
 const githubUrl = "https://api.github.com"
 const token = process.env.REACT_APP_GITHUB_TOKEN
+const headerAccept = process.env.REACT_APP_ACCEPT_HEADER
 
 export const rateLimit = () => {
     return async (dispatch) => {
@@ -36,7 +37,7 @@ const amountOfRepos = async () => {
             method: "GET",
             url: githubUrl + "/user",
             headers: {
-                Accept: "application/vnd.github.scarlet-witch-preview+json",
+                Accept: headerAccept,
                 Authorization: `Bearer ${token}`
             },
         })
@@ -66,7 +67,7 @@ export const getAllRepos = () => {
                         method: "GET",
                         url: githubUrl + "/user/repos",
                         headers: {
-                            Accept: "application/vnd.github.scarlet-witch-preview+json",
+                            Accept: headerAccept,
                             Authorization: `Bearer ${token}`
                         },
                         params: {
@@ -112,7 +113,7 @@ const addTopics = async (repoName) => {
             method: "GET",
             url: githubUrl + "/repos/" + repoName + "/topics",
             headers: {
-                Accept: "application/vnd.github.mercy-preview+json",
+                Accept: headerAccept,
                 Authorization: `Bearer ${token}`
             }
         })

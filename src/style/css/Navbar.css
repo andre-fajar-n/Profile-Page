@@ -1,54 +1,76 @@
 .site-navbar {
-    background-color: #FDFFF7;
-    padding-top: 20px;
-    top: 0px;
+  background-color: #fdfff7;
+  padding: 20px 0;
+  top: 0px;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .site-navbar.scrolled.bg-light {
-    background: #1B2869 !important;
+  background: #1b2869 !important;
 }
 
 .site-navbar .navbar-list > li > a {
-    color: #1B2869 !important;
-    font-weight: 1000;
-    font-size: 15px;
+  color: #223dd4 !important;
+  font-weight: 1000;
+  font-size: larger;
 }
 
 .site-navbar .navbar-list > li > a:hover {
-    color: #B8EB1E !important;
+  color: #a82390 !important;
 }
 
 .site-navbar .navbar-list > li > a.active {
-    border: 3px solid #558A20;
-    border-radius: 50px;
-    background-color: #1B2869;
-    color: #B8EB1E !important;
+  border-radius: 50px;
+  font-weight: 900;
+  background-color: #a82390;
+  color: #fdfff7 !important;
 }
 
 .site-navbar.scrolled {
-    background-color: #1B2869;
+  background-color: #223dd4;
 }
 
 .site-navbar.scrolled .navbar-list > li > a {
-    color: #FDFFF7 !important;
-    font-weight: 1000;
-    font-size: 15px;
+  color: #fdfff7 !important;
+  font-weight: 1000;
 }
 
 .site-navbar.scrolled .navbar-list > li > a.active {
-    color: #B8EB1E !important;
+  background-color: #fdfff7;
+  color: #a82390 !important;
 }
 
 .site-navbar.scrolled .navbar-list > li > a:hover {
-    color: #B8EB1E !important;
+  color: #f799e6 !important;
 }
 
-@media (max-width:992px){
-    #navbarsExample09 {
-        text-align: end;
-    }
+@media (max-width: 992px) {
+  #navbarsExample09 {
+    text-align: end;
+  }
 
-    #navbarsExample09 .nav-link{
-        padding-right: 0px !important;
-    }
+  #navbarsExample09 .nav-link {
+    padding-right: 0px !important;
+  }
+
+  .site-navbar .navbar-list > li > a.active {
+    background-color: #fdfff7;
+    color: #a82390 !important;
+  }
+
+  .site-navbar.scrolled .navbar-list > li > a.active {
+    background-color: #223dd4;
+    color: #f799e6 !important;
+  }
+
+  .site-navbar .navbar-toggler {
+    border-color: #223dd4;
+    border-width: 2px;
+  }
+
+  .site-navbar.scrolled .navbar-toggler {
+    background-color: #fdfff7;
+  }
 }

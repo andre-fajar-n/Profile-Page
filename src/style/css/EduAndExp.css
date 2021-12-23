@@ -1,55 +1,51 @@
 #education > h2,
 #experience > h2 {
-    color: #50514F;
+  font-weight: 350;
+  color: #223dd4;
 }
 
-#education,
-#experience {
-    background-color: #FFED65;
+.school {
+  color: #a82390;
 }
 
-.school{
-    /* font-weight: 800; */
-    color: #fff;
+.description {
+  color: #fdfff7;
 }
 
-.description{
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.resume-item{
-    background-color: #50514F;
-    transition: transform 1s;
+.resume-item {
+  border: 2px solid #223dd4;
+  background-color: #a82390;
+  transition: transform 1s;
 }
 
 .resume-item .date,
 .resume-item .title {
-    color: #59FFA0;
+  color: #fdfff7;
 }
 
 .resume-item .description {
-    color: #FDFFF7;
+  color: #fdfff7;
 }
 
 .resume-item .school {
-    color: #B4ADEA;
+  color: #fdfff7;
 }
 
-.resume-item:hover{
-    transform: scale(0.95);
+.resume-item:hover {
+  transform: scale(0.95);
 }
 
 .resume-item:hover .date,
 .resume-item:hover .title {
-    color: #B4ADEA;
+  color: #f799e6;
 }
 
 .resume-item:hover .description {
-    color: #59FFA0;
+  color: #f799e6;
 }
 
 .resume-item:hover .school {
-    color: #FDFFF7;
+  color: #f799e6;
 }
 
 /* .resume-item:hover .title{
@@ -66,8 +62,8 @@
     border-right: 1px solid #fff;
 } */
 
-@media (max-width:768px){
-    #education{
-        border-right: none;
-    }
+@media (max-width: 768px) {
+  #education {
+    border-right: none;
+  }
 }
