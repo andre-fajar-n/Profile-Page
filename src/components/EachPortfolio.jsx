@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import "../style/css/EachPortfolio.css"
 
 export const EachPortfolio = (props) => {
-  var repoFront = `https://github-readme-stats.vercel.app/api/pin/?hide_border=true&username=${props.username}&repo=${props.repo}&title_color=bac964&bg_color=333333&text_color=ffffff&icon_color=bac964`
-  var repoBack = `https://github-readme-stats.vercel.app/api/pin/?hide_border=true&username=${props.username}&repo=${props.repo}&title_color=333333&bg_color=bac964&text_color=000000&icon_color=333333`
+  var repoFront = `https://github-readme-stats.vercel.app/api/pin/?username=${props.username}&repo=${props.repo}&title_color=223dd4&bg_color=fdfff7&text_color=a82390&icon_color=223dd4&border_color=223dd4`
+  var repoBack = `https://github-readme-stats.vercel.app/api/pin/?hide_border=true&username=${props.username}&repo=${props.repo}&title_color=f799e6&bg_color=223dd4&text_color=fdfff7&icon_color=f799e6`
   var title = props.repo
   if (props.username !== props.repo) {
     title = props.repo.replace(/-/gi, " ")

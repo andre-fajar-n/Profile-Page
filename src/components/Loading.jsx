@@ -15,6 +15,6 @@ export const Loading = () => {
         width={10}
         radius={25}
         margin={50}
-        color={"#bac964"}
+        color={"#223dd4"}
     />
 }

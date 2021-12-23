@@ -19,8 +19,8 @@ class About extends Component {
               <div className="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
                 <img src={require("../images/name.jpg")} alt="Image_placeholder" className="img-fluid" />
               </div>
-              <div className="col-lg-5 pl-lg-5">
-                <div className="section-heading">
+              <div className="col-lg-5 pl-lg-5 description">
+                <div className="section-heading text-center">
                   <h2>About <strong>Me</strong></h2>
                 </div>
                 <ul className="about-info mt-4 px-md-0 px-2">
@@ -32,7 +32,7 @@ class About extends Component {
                 </ul>
 
                 <p className="link-cv">
-                  <a href="https://drive.google.com/file/d/1b7jfB5OMFvovTvi4oHNhdFqhLb3hGRRK/view?usp=sharing"
+                  <a href="https://drive.google.com/drive/folders/1hMEGbG-UCdYzUIMn4RJiFA_sLiabmGjS?usp=sharing"
                     target="blank"
                     className="btn btn-primary px-4 py-2 btn-sm smoothscroll"
                   >Download CV</a>

@@ -3,6 +3,7 @@ import { sortObjectByValueAndCreateArray } from "../../utils/sorting"
 
 // const githubUrl = "https://api.github.com"
 const token = process.env.REACT_APP_GITHUB_TOKEN
+const headerAccept = process.env.REACT_APP_ACCEPT_HEADER
 const per_page = 100
 
 export const githubStats = () => {
@@ -50,7 +51,7 @@ const countCommits = async (url) => {
                 method: "GET",
                 url: `${url}/commits`,
                 headers: {
-                    Accept: "application/vnd.github.scarlet-witch-preview+json",
+                    Accept: headerAccept,
                     Authorization: `Bearer ${token}`
                 },
                 params: {

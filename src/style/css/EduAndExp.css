@@ -1,39 +1,69 @@
-.school{
-    font-weight: 800;
+#education > h2,
+#experience > h2 {
+  font-weight: 350;
+  color: #223dd4;
+}
+
+.school {
+  color: #a82390;
+}
+
+.description {
+  color: #fdfff7;
+}
+
+.resume-item {
+  border: 2px solid #223dd4;
+  background-color: #a82390;
+  transition: transform 1s;
+}
+
+.resume-item .date,
+.resume-item .title {
+  color: #fdfff7;
+}
+
+.resume-item .description {
+  color: #fdfff7;
+}
+
+.resume-item .school {
+  color: #fdfff7;
+}
+
+.resume-item:hover {
+  transform: scale(0.95);
+}
+
+.resume-item:hover .date,
+.resume-item:hover .title {
+  color: #f799e6;
+}
+
+.resume-item:hover .description {
+  color: #f799e6;
+}
+
+.resume-item:hover .school {
+  color: #f799e6;
+}
+
+/* .resume-item:hover .title{
     color: #fff;
 }
 
-.description{
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.resume-item{
-    transition: transform 1s;
-}
-
-.resume-item:hover{
-    transform: scale(0.95);
-}
-
-.resume-item:hover .title{
-    color: #fff;
-}
-
-.resume-item:hover .date, .resume-item:hover .school{
+.resume-item:hover .date,
+.resume-item:hover .school{
     color: #bac964;
-}
-
-#section-education-experience{
-    /* padding-bottom: 40px !important; */
-}
+} */
 
 /* EDU & EXP */
-#education{
+/* #education{
     border-right: 1px solid #fff;
-}
+} */
 
-@media (max-width:768px){
-    #education{
-        border-right: none;
-    }
+@media (max-width: 768px) {
+  #education {
+    border-right: none;
+  }
 }
