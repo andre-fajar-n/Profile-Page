@@ -6,12 +6,12 @@ from django.db import models
 class About(models.Model):
     fullname = models.CharField(max_length=100, null=False)
     nickname = models.CharField(max_length=20, null=False)
-    job_position = models.CharField(null=False)
-    cv_url = models.CharField()
+    job_position = models.CharField(max_length=50, null=False)
+    cv_url = models.CharField(max_length=255)
     start_working = models.DateTimeField(null=False)
-    summary = models.CharField()
-    phone_number = models.CharField()
-    address = models.CharField()
+    summary = models.TextField()
+    phone_number = models.CharField(max_length=20)
+    address = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
@@ -19,8 +19,8 @@ class About(models.Model):
 
 
 class Skill(models.Model):
-    name = models.CharField(null=False)
-    image_url = models.CharField(null=True)
+    name = models.CharField(max_length=100, null=False)
+    image_url = models.CharField(max_length=1000, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
@@ -30,9 +30,9 @@ class Skill(models.Model):
 
 
 class Experience(models.Model):
-    position = models.CharField(null=False)
-    company = models.CharField(null=False)
-    description = models.CharField(null=False)
+    position = models.CharField(max_length=50, null=False)
+    company = models.CharField(max_length=50, null=False)
+    description = models.TextField(null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -44,10 +44,10 @@ class Experience(models.Model):
 
 
 class Education(models.Model):
-    school = models.CharField(null=False)
-    degree = models.CharField(null=False)
-    field_of_study = models.CharField(null=False)
-    description = models.CharField(null=False)
+    school = models.CharField(max_length=255, null=False)
+    degree = models.CharField(max_length=50, null=False)
+    field_of_study = models.CharField(max_length=50, null=False)
+    description = models.TextField(null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -59,10 +59,10 @@ class Education(models.Model):
 
 
 class Award(models.Model):
-    title = models.CharField(null=False)
-    issuer = models.CharField(null=False)
+    title = models.CharField(max_length=255, null=False)
+    issuer = models.CharField(max_length=255, null=False)
     issue_date = models.DateField(null=False)
-    description = models.CharField()
+    description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
@@ -72,7 +72,7 @@ class Award(models.Model):
 
 
 class MasterData(models.Model):
-    name = models.CharField(null=False)
+    name = models.CharField(max_length=50, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
@@ -82,19 +82,19 @@ class MasterData(models.Model):
 
 
 class Project(models.Model):
-    name = models.CharField(null=False)
-    description = models.CharField(null=False)
-    technology = models.CharField(null=False)
-    tools = models.CharField(null=False)
-    live_url = models.CharField(null=True)
-    source_url = models.CharField(null=True)
+    name = models.CharField(max_length=255, null=False)
+    description = models.TextField(null=False)
+    technology = models.CharField(max_length=100, null=False)
+    tools = models.CharField(max_length=100, null=False)
+    live_url = models.CharField(max_length=1000, null=True)
+    source_url = models.CharField(max_length=1000, null=True)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True)
-    ownership = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False)
-    topic1 = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False)
-    topic2 = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False)
-    topic3 = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False)
-    associated_with = models.ForeignKey(null=True, to=Experience, on_delete=models.CASCADE)
+    ownership = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False, related_name="fk_master_data_ownership")
+    topic1 = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False, related_name="fk_master_data_topic1")
+    topic2 = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False, related_name="fk_master_data_topic2")
+    topic3 = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False, related_name="fk_master_data_topic3")
+    associated_with = models.ForeignKey(null=True, to=Experience, on_delete=models.CASCADE, related_name="fk_associated_with")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
