@@ -1,7 +1,7 @@
-# example/urls.py
+# profile_page/urls.py
 from django.urls import path
 
-from example.views import index
+from profile_page.views import index
 
 
 urlpatterns = [
