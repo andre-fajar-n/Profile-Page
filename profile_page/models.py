@@ -90,11 +90,16 @@ class Project(models.Model):
     source_url = models.CharField(max_length=1000, null=True)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True)
-    ownership = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False, related_name="fk_master_data_ownership")
-    topic1 = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False, related_name="fk_master_data_topic1")
-    topic2 = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False, related_name="fk_master_data_topic2")
-    topic3 = models.ForeignKey(MasterData, on_delete=models.RESTRICT, null=False, related_name="fk_master_data_topic3")
-    associated_with = models.ForeignKey(null=True, to=Experience, on_delete=models.CASCADE, related_name="fk_associated_with")
+    ownership = models.ForeignKey(
+        MasterData, on_delete=models.RESTRICT, null=False, related_name="fk_master_data_ownership")
+    topic1 = models.ForeignKey(MasterData, on_delete=models.RESTRICT,
+                               null=False, related_name="fk_master_data_topic1")
+    topic2 = models.ForeignKey(MasterData, on_delete=models.RESTRICT,
+                               null=False, related_name="fk_master_data_topic2")
+    topic3 = models.ForeignKey(MasterData, on_delete=models.RESTRICT,
+                               null=False, related_name="fk_master_data_topic3")
+    associated_with = models.ForeignKey(
+        null=True, to=Experience, on_delete=models.CASCADE, related_name="fk_associated_with")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
