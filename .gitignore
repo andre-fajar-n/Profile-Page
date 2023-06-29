@@ -1,15 +1,18 @@
-.vercel
-*.log
-*.pyc
-__pycache__
-db.sqlite3
-media
+*.env
 
-# Environments 
-.env 
-.venv 
-env/ 
-venv/ 
-ENV/ 
-env.bak/ 
-venv.bak/ 
+# Distribution / packaging
+.Python
+venv/
+env/
+*.sqlite3
+.idea/
+# Project asset folders
+media/
+# Database
+db.sqlite3
+# Editor directories and files
+.idea
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
