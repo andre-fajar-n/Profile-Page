@@ -5,8 +5,21 @@ from .models import About, Skill, Experience, Award, Education, MasterData, Proj
 
 
 class AboutAdmin(admin.ModelAdmin):
-    list_display = ('fullname', 'nickname', 'job_position', 'cv_url',
-                    'start_working', 'summary', 'phone_number', 'address', 'created_at')
+    list_display = (
+        'fullname',
+        'nickname',
+        'job_position',
+        'cv_url',
+        'start_working',
+        'summary',
+        'phone_number',
+        'address',
+        'facebook_username',
+        'github_username',
+        'linkedin_username',
+        'instagram_username',
+        'created_at',
+    )
 
 
 admin.site.register(About, AboutAdmin)
