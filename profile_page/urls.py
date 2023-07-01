@@ -5,5 +5,5 @@ from profile_page.views import index
 
 
 urlpatterns = [
-    path('', index),
+    path('', index, name='home'),
 ]
