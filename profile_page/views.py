@@ -17,10 +17,14 @@ def index(request):
     # get user data
     user = User.objects.get()
 
+    # get skills data
+    skills = models.Skill.objects.all()
+
     data = {
         "about": about,
         "years_experience": int(delta.total_seconds()//(3600*24*365.25)),
         "user": user,
+        "skills": skills,
     }
 
     return render(request, "index.html", data)
