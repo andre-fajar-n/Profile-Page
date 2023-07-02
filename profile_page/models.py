@@ -8,10 +8,14 @@ class About(models.Model):
     nickname = models.CharField(max_length=20, null=False)
     job_position = models.CharField(max_length=50, null=False)
     cv_url = models.CharField(max_length=255)
-    start_working = models.DateTimeField(null=False)
+    start_working = models.DateField(null=False)
     summary = models.TextField()
     phone_number = models.CharField(max_length=20)
     address = models.CharField(max_length=255)
+    facebook_username = models.CharField(max_length=20, default='')
+    github_username = models.CharField(max_length=20, default='')
+    linkedin_username = models.CharField(max_length=20, default='')
+    instagram_username = models.CharField(max_length=20, default='')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
