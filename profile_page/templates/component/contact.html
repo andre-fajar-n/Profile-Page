@@ -12,13 +12,13 @@
         <div class="row g-5">
             <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <p class="mb-2">My address:</p>
-                <h3 class="fw-bold">{{about.address}}</h3>
+                <h3 class="fw-bold">{{about.address|default:'Tulungagung, Jawa Timur, Indonesia'}}</h3>
                 <hr class="w-100">
                 <p class="mb-2">Call me:</p>
-                <h3 class="fw-bold">{{about.phone_number}}</h3>
+                <h3 class="fw-bold">{{about.phone_number|default:'085735xxxx40'}}</h3>
                 <hr class="w-100">
                 <p class="mb-2">Mail me:</p>
-                <h3 class="fw-bold">{{user.email}}</h3>
+                <h3 class="fw-bold">{{user.email|default:'andrenugroho395@gmail.com'}}</h3>
                 <hr class="w-100">
                 <p class="mb-2">Follow me:</p>
                 <div class="d-flex pt-2">

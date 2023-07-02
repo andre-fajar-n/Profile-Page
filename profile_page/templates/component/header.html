@@ -6,12 +6,14 @@
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 py-6 pb-0 pt-lg-0">
                 <h3 class="text-primary mb-3">I'm</h3>
-                <h1 class="display-3 mb-3">{{about}}</h1>
+                <h1 class="display-3 mb-3">{{about|default:'Andre Fajar N'}}</h1>
                 <h2 class="typed-text-output d-inline"></h2>
-                <div class="typed-text d-none">{{about.job_position}}</div>
+                <div class="typed-text d-none">{{about.job_position|default:'Backend Engineer'}}</div>
+                {% if about.cv_url %}
                 <div class="d-flex align-items-center pt-5">
                     <a href="{{about.cv_url}}" target="_blank" class="btn btn-primary py-3 px-4 me-5">Download CV</a>
                 </div>
+                {% endif %}
             </div>
             <div class="col-lg-6">
                 <img class="img-fluid" src="{% static 'img/profile.png' %}" alt="">
