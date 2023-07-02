@@ -26,8 +26,13 @@ admin.site.register(About, AboutAdmin)
 
 
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ('name', 'image_url', 'created_at',
-                    'updated_at', 'deleted_at')
+    list_display = (
+        'name',
+        'image_url',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    )
 
 
 admin.site.register(Skill, SkillAdmin)

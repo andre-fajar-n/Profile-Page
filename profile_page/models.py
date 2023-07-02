@@ -24,9 +24,9 @@ class About(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100, null=False)
-    image_url = models.CharField(max_length=1000, null=True)
+    image_url = models.CharField(max_length=1000, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self) -> str:
