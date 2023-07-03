@@ -4,43 +4,21 @@
         <div class="row g-5">
             <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
                 <h1 class="display-5 mb-5">Experiences</h1>
-                <!-- <ul class="nav nav-pills rounded border border-2 border-primary mb-5">
-                    <li class="nav-item w-50">
-                        <button class="nav-link w-100 py-3 fs-5 active" data-bs-toggle="pill" href="#tab-1">Experience</button>
-                    </li>
-                    <li class="nav-item w-50">
-                        <button class="nav-link w-100 py-3 fs-5" data-bs-toggle="pill" href="#tab-2">Education</button>
-                    </li>
-                </ul> -->
                 <div class="tab-content">
-                    <!-- <div id="tab-1" class="tab-pane fade show p-0 active"> -->
-                        <div class="row gy-5 gx-4">
-                            <div class="col-sm-6">
-                                <h5>UI Designer</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">eFishery</h6>
-                            </div>
-                            <div class="col-sm-6">
-                                <h5>Product Designer</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Refactory.id</h6>
-                            </div>
-                            <div class="col-sm-6">
-                                <h5>Web Designer</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Apex Software Inc</h6>
-                            </div>
-                            <div class="col-sm-6">
-                                <h5>Apps Designer</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Apex Software Inc</h6>
-                            </div>
+                    <div class="row gy-5 gx-4">
+                        {% for experience in experiences %}
+                        <div class="col-sm-6">
+                            <h5>{{experience.position|capfirst}}</h5>
+                            <h6 style="display:inline" class="mb-0">{{experience.company|capfirst}}</h6>
+                            {% if experience.company_site %}
+                            <a href="{{experience.company_site}}" target="_blank" class="bi-arrow-right"> Company site</a>
+                            {% endif %}
+                            <p class="text-primary mb-1">{{experience.start_date|date:"F Y"}} - {{experience.end_date|date:"F Y"}} ({{experience.start_date|timesince:experience.end_date}})</p>
+                            <hr class="text-primary my-2">
+                            <pre>{{experience.description}}</pre>
                         </div>
-                    <!-- </div> -->
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

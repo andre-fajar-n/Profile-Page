@@ -29,4 +29,8 @@ def index(request):
     skills = models.Skill.objects.all()
     data["skills"] = skills
 
+    # get experiences data
+    experiences = models.Experience.objects.order_by('-end_date')
+    data["experiences"] = experiences
+
     return render(request, "index.html", data)

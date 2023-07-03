@@ -39,8 +39,17 @@ admin.site.register(Skill, SkillAdmin)
 
 
 class ExperienceAdmin(admin.ModelAdmin):
-    list_display = ('position', 'company', 'description',
-                    'start_date', 'end_date', 'created_at', 'updated_at', 'deleted_at')
+    list_display = (
+        'position',
+        'company',
+        'company_site',
+        'description',
+        'start_date',
+        'end_date',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    )
 
 
 admin.site.register(Experience, ExperienceAdmin)
