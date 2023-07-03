@@ -36,11 +36,12 @@ class Skill(models.Model):
 class Experience(models.Model):
     position = models.CharField(max_length=50, null=False)
     company = models.CharField(max_length=50, null=False)
+    company_site = models.URLField(null=True, blank=True)
     description = models.TextField(null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self) -> str:
