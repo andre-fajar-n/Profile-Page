@@ -56,8 +56,18 @@ admin.site.register(Experience, ExperienceAdmin)
 
 
 class EducationAdmin(admin.ModelAdmin):
-    list_display = ('school', 'degree', 'field_of_study', 'description',
-                    'start_date', 'end_date', 'created_at', 'updated_at', 'deleted_at')
+    list_display = (
+        'school',
+        'school_site',
+        'degree',
+        'field_of_study',
+        'description',
+        'start_date',
+        'end_date',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    )
 
 
 admin.site.register(Education, EducationAdmin)

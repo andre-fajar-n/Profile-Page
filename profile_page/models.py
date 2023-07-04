@@ -50,13 +50,14 @@ class Experience(models.Model):
 
 class Education(models.Model):
     school = models.CharField(max_length=255, null=False)
+    school_site = models.URLField(null=True, blank=True)
     degree = models.CharField(max_length=50, null=False)
     field_of_study = models.CharField(max_length=50, null=False)
     description = models.TextField(null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self) -> str:

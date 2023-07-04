@@ -33,4 +33,8 @@ def index(request):
     experiences = models.Experience.objects.order_by('-end_date')
     data["experiences"] = experiences
 
+    # get education data
+    education = models.Education.objects.order_by("-end_date")
+    data["education"] = education
+
     return render(request, "index.html", data)
