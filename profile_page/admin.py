@@ -74,8 +74,15 @@ admin.site.register(Education, EducationAdmin)
 
 
 class AwardAdmin(admin.ModelAdmin):
-    list_display = ('title', 'issuer', 'issue_date', 'description',
-                    'created_at', 'updated_at', 'deleted_at')
+    list_display = (
+        'title',
+        'issuer',
+        'issue_date',
+        'description',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    )
 
 
 admin.site.register(Award, AwardAdmin)
