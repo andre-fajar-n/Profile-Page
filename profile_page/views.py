@@ -37,4 +37,8 @@ def index(request):
     education = models.Education.objects.order_by("-end_date")
     data["education"] = education
 
+    # get award data
+    awards = models.Award.objects.order_by("-issue_date")
+    data["awards"] = awards
+
     return render(request, "index.html", data)
