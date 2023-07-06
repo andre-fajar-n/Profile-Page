@@ -80,7 +80,7 @@ class Award(models.Model):
 class MasterData(models.Model):
     name = models.CharField(max_length=50, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self) -> str:
@@ -92,8 +92,8 @@ class Project(models.Model):
     description = models.TextField(null=False)
     technology = models.CharField(max_length=100, null=False)
     tools = models.CharField(max_length=100, null=False)
-    live_url = models.CharField(max_length=1000, null=True)
-    source_url = models.CharField(max_length=1000, null=True)
+    live_url = models.URLField(null=True)
+    source_url = models.URLField(null=True)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True)
     ownership = models.ForeignKey(
@@ -101,13 +101,13 @@ class Project(models.Model):
     topic1 = models.ForeignKey(MasterData, on_delete=models.RESTRICT,
                                null=False, related_name="fk_master_data_topic1")
     topic2 = models.ForeignKey(MasterData, on_delete=models.RESTRICT,
-                               null=False, related_name="fk_master_data_topic2")
+                               null=True, blank=True, related_name="fk_master_data_topic2")
     topic3 = models.ForeignKey(MasterData, on_delete=models.RESTRICT,
-                               null=False, related_name="fk_master_data_topic3")
+                               null=True, blank=True, related_name="fk_master_data_topic3")
     associated_with = models.ForeignKey(
-        null=True, to=Experience, on_delete=models.CASCADE, related_name="fk_associated_with")
+        null=True, blank=True, to=Experience, on_delete=models.CASCADE, related_name="fk_associated_with")
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self) -> str:

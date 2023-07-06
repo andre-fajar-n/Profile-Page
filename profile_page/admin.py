@@ -96,8 +96,24 @@ admin.site.register(MasterData, MasterDataAdmin)
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'technology', 'tools', 'live_url', 'source_url', 'start_date', 'end_date',
-                    'ownership', 'topic1', 'topic2', 'topic3', 'associated_with', 'created_at', 'updated_at', 'deleted_at')
+    list_display = (
+        'name',
+        'description',
+        'technology',
+        'tools',
+        'live_url',
+        'source_url',
+        'start_date',
+        'end_date',
+        'ownership',
+        'topic1',
+        'topic2',
+        'topic3',
+        'associated_with',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    )
 
 
 admin.site.register(Project, ProjectAdmin)

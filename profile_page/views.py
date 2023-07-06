@@ -41,4 +41,19 @@ def index(request):
     awards = models.Award.objects.order_by("-issue_date")
     data["awards"] = awards
 
+    # get master data
+    temp_master = models.MasterData.objects.all()
+    masters = []
+    for val in temp_master:
+        temp = val.name.replace("-", " ").title()
+        masters.append({
+            "title_name": temp,
+            "original_name": val.name,
+        })
+    data["masters"] = masters
+
+    # get project data
+    projects = models.Project.objects.all()
+    data["projects"] = projects
+
     return render(request, "index.html", data)
