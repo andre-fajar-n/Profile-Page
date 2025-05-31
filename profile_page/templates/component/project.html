@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row g-5 mb-5 align-items-center wow fadeInUp" data-wow-delay="0.1s">
             <div class="col-lg-6">
-                <h1 class="display-5 mb-0">My Projects</h1>
+                <h1 class="display-5 mb-0 section-title">My Projects</h1>
             </div>
             <div class="col-lg-6 text-lg-end">
                 <ul class="list-inline mx-n3 mb-0" id="portfolio-flters">
@@ -19,14 +19,28 @@
         <div class="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.1s">
             {% for project in projects %}
             <div class="col-lg-4 col-md-6 portfolio-item {{project.ownership}} {{project.topic1}} {{project.topic2}} {{project.topic3}}">
-                <div class="portfolio-img rounded overflow-hidden">
-                    <img class="img-fluid" src="{% static 'img/project-2.jpg' %}" alt="">
-                    <div class="portfolio-btn">
-                        <h1>{{project.name}}</h1><br/>
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="{% static 'img/project-2.jpg' %}" data-lightbox="portfolio">
-                            <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i class="fa fa-link"></i></a>
+                <div class="card h-100">
+                    <div class="portfolio-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="{% static 'img/project-2.jpg' %}" alt="">
+                        <div class="portfolio-overlay">
+                            <div class="d-flex h-100 align-items-center justify-content-center">
+                                <a class="btn btn-lg-square btn-outline-light mx-1" href="{% static 'img/project-2.jpg' %}" data-lightbox="portfolio">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a class="btn btn-lg-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-2">{{project.name}}</h5>
+                        <p class="card-text text-muted">{{project.description|truncatechars:100}}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div class="tech-stack">
+                                <span class="badge bg-light text-dark me-1">{{project.topic1}}</span>
+                                {% if project.topic2 %}<span class="badge bg-light text-dark me-1">{{project.topic2}}</span>{% endif %}
+                            </div>
+                            <a href="#" class="text-primary">Details <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>

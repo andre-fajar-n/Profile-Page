@@ -1,22 +1,27 @@
 {% load static %}
 
 <!-- Header Start -->
-<div class="container-fluid bg-light my-6 mt-0" id="home">
+<div class="container-fluid bg-gradient-light py-6" id="home">
     <div class="container">
         <div class="row g-5 align-items-center">
-            <div class="col-lg-6 py-6 pb-0 pt-lg-0">
-                <h3 class="text-primary mb-3">I'm</h3>
-                <h1 class="display-3 mb-3">{{about|default:'Andre Fajar N'}}</h1>
-                <h2 class="typed-text-output d-inline"></h2>
-                <div class="typed-text d-none">{{about.job_position|default:'Backend Engineer'}}</div>
+            <div class="col-lg-8 mx-auto text-center py-6 pb-0 pt-lg-0">
+                <span class="badge bg-primary text-white px-3 py-2 mb-3">Hello, I'm</span>
+                <h1 class="display-3 mb-3 fw-bold">{{about.fullname|default:'Andre Fajar N'}}</h1>
+                <div class="typed-container mb-4">
+                    <span class="typed-text-output d-inline fw-light fs-4"></span>
+                    <div class="typed-text d-none">{{about.job_position|default:'Backend Engineer'}}</div>
+                </div>
+                <p class="lead mb-4 text-muted">Passionate about creating elegant solutions to complex problems.</p>
                 {% if about.cv_url %}
-                <div class="d-flex align-items-center pt-5">
-                    <a href="{{about.cv_url}}" target="_blank" class="btn btn-primary py-3 px-4 me-5">Download CV</a>
+                <div class="d-flex justify-content-center align-items-center pt-3">
+                    <a href="{{about.cv_url}}" target="_blank" class="btn btn-primary py-3 px-5 me-4 rounded-pill">
+                        <i class="fas fa-download me-2"></i> Download CV
+                    </a>
+                    <a href="#contact" class="btn btn-outline-primary py-3 px-5 rounded-pill">
+                        <i class="fas fa-paper-plane me-2"></i> Contact Me
+                    </a>
                 </div>
                 {% endif %}
-            </div>
-            <div class="col-lg-6">
-                <img class="img-fluid" src="{% static 'img/profile.png' %}" alt="">
             </div>
         </div>
     </div>

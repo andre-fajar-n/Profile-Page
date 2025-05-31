@@ -1,26 +1,23 @@
 <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top shadow py-lg-0 px-4 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-    <a href="{% url 'home' %}" class="navbar-brand d-block d-lg-none">
-        <h1 class="text-primary fw-bold m-0">{{about.nickname|default:'Andre'}}</h1>
-    </a>
-    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-between py-4 py-lg-0" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-            <a href="{% url 'home' %}#home" class="nav-item nav-link active">Home</a>
-            <a href="{% url 'home' %}#about" class="nav-item nav-link">About</a>
-            <a href="{% url 'home' %}#skill" class="nav-item nav-link">Skills</a>
-            <a href="{% url 'home' %}#experience" class="nav-item nav-link">Experiences</a>
-        </div>
-        <a href="index.html" class="navbar-brand bg-secondary py-3 px-4 mx-3 d-none d-lg-block">
-            <h1 class="text-primary fw-bold m-0">{{about.nickname|default:'Andre'}}</h1>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm py-2 px-4 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+            <h2 class="m-0 text-primary fw-bold">{{about.nickname|default:'Andre'}}</h2>
         </a>
-        <div class="navbar-nav me-auto py-0">
-            <a href="{% url 'home' %}#education" class="nav-item nav-link">Education</a>
-            <a href="{% url 'home' %}#award" class="nav-item nav-link">Awards</a>
-            <a href="{% url 'home' %}#project" class="nav-item nav-link">Projects</a>
-            <a href="{% url 'home' %}#contact" class="nav-item nav-link">Contact</a>
+        <button type="button" class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="{% url 'home' %}#home" class="nav-item nav-link active">Home</a>
+                <a href="{% url 'home' %}#about" class="nav-item nav-link">About</a>
+                <a href="{% url 'home' %}#skill" class="nav-item nav-link">Skills</a>
+                <a href="{% url 'home' %}#experience" class="nav-item nav-link">Experience</a>
+                <a href="{% url 'home' %}#education" class="nav-item nav-link">Education</a>
+                <a href="{% url 'home' %}#project" class="nav-item nav-link">Projects</a>
+                <a href="{% url 'home' %}#contact" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="#contact" class="btn btn-primary rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Get In Touch</a>
         </div>
     </div>
 </nav>
