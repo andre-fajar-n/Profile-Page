@@ -1,0 +1,10 @@
+/*** Award ***/
+.award-item .bg-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../img/bg-icon.png) center center no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,190 @@
+/*** About ***/
+/* About Section Styling */
+.section-header {
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.divider-center {
+    height: 4px;
+    width: 70px;
+    background: var(--primary);
+    margin: 0 auto;
+    position: relative;
+}
+
+.divider-center:before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 0;
+    height: 4px;
+    width: 10px;
+    background: var(--primary);
+    opacity: 0.5;
+}
+
+.divider-center:after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 0;
+    height: 4px;
+    width: 10px;
+    background: var(--primary);
+    opacity: 0.5;
+}
+
+/* About section boxes */
+.about-box {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.about-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-color: var(--primary);
+}
+
+/* Years experience counter */
+.years {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(67, 97, 238, 0.1);
+    border-radius: 50%;
+    border: 2px dashed var(--primary);
+}
+
+.years h1 {
+    color: var(--primary);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.years h5 {
+    color: var(--gray);
+    font-weight: 500;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 2.5rem 1.5rem;
+    height: 100%;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+
+.feature-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(76, 201, 240, 0.05) 100%);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(67, 97, 238, 0.1);
+}
+
+.feature-card:hover:before {
+    height: 100%;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(76, 201, 240, 0.1) 100%);
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+
+.feature-card:hover .feature-icon {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+}
+
+.feature-icon i {
+    font-size: 2rem;
+    color: var(--primary);
+    transition: all 0.4s ease;
+}
+
+.feature-card:hover .feature-icon i {
+    color: #ffffff;
+}
+
+.feature-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.feature-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--primary);
+}
+
+.feature-text {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Experience Counter */
+.experience-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, rgba(67, 97, 238, 0.1), rgba(76, 201, 240, 0.1));
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(67, 97, 238, 0.15);
+    border: 2px solid rgba(67, 97, 238, 0.2);
+}
+
+.counter-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Playfair Display', serif;
+}
+
+.counter-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gray);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
