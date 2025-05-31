@@ -5,6 +5,7 @@ from datetime import datetime
 # Django
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.db.models import Case, When, Value, BooleanField
 
 # Local
 from . import models, utils
@@ -40,12 +41,24 @@ def index(request):
     skills = models.Skill.objects.all()
     data["skills"] = skills
 
-    # get experiences data
-    experiences = models.Experience.objects.order_by('-end_date')
+    # get experiences data - sort by end_date (current jobs first, then by most recent)
+    experiences = models.Experience.objects.annotate(
+        is_current=Case(
+            When(end_date=None, then=Value(True)),
+            default=Value(False),
+            output_field=BooleanField()
+        )
+    ).order_by('-is_current', '-end_date', '-start_date')
     data["experiences"] = experiences
 
-    # get education data
-    education = models.Education.objects.order_by("-end_date")
+    # get education data - sort by end_date (current education first, then by most recent)
+    education = models.Education.objects.annotate(
+        is_current=Case(
+            When(end_date=None, then=Value(True)),
+            default=Value(False),
+            output_field=BooleanField()
+        )
+    ).order_by('-is_current', '-end_date', '-start_date')
     data["education"] = education
 
     # get award data
@@ -63,8 +76,14 @@ def index(request):
         })
     data["masters"] = masters
 
-    # get project data
-    projects = models.Project.objects.all()
+    # get project data - sort by end_date (current projects first, then by most recent)
+    projects = models.Project.objects.annotate(
+        is_current=Case(
+            When(end_date=None, then=Value(True)),
+            default=Value(False),
+            output_field=BooleanField()
+        )
+    ).order_by('-is_current', '-end_date', '-start_date')
     data["projects"] = projects
 
     return render(request, "index.html", data)
