@@ -3,50 +3,54 @@
 <!-- About Start -->
 <div class="container-xxl py-6" id="about">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-4 text-center section-title">About Me</h1>
-                
-                {% if about %}
-                <div class="d-flex align-items-center mb-5">
-                    <div class="years flex-shrink-0 text-center me-4">
-                        <h1 class="display-1 mb-0">{{years_experience}}</h1>
-                        <h5 class="mb-0">Years</h5>
-                    </div>
-                    <h3 class="lh-base mb-0">of working experience as a {{about.job_position}}</h3>
+        <div class="row g-5">
+            <div class="col-lg-8 mx-auto text-center wow fadeInUp" data-wow-delay="0.1s">
+                <div class="section-header">
+                    <h1 class="display-5 fw-bold mb-4">About Me</h1>
+                    <div class="divider-center"></div>
                 </div>
-                {% endif %}
                 
-                <p class="mb-4">
-                    {% if about.summary %}
-                    {{about.summary}}
-                    {% else %}
-                        {% lorem %}
-                    {% endif %}
+                <div class="d-flex align-items-center justify-content-center mb-5">
+                    <div class="experience-counter me-4">
+                        <span class="counter-number">{{years_experience}}</span>
+                        <span class="counter-text">Years</span>
+                    </div>
+                    <h3 class="fw-light mb-0">of working experience as a <span class="fw-bold">Backend Engineer</span></h3>
+                </div>
+                
+                <p class="lead text-muted mb-5">
+                    I'm an experienced backend engineer with a passion for IoT & AI technologies. 
+                    I focus on creating efficient, scalable solutions for complex technical challenges.
                 </p>
-                
-                <div class="row mt-5">
-                    <div class="col-md-4 mb-4">
-                        <div class="about-box text-center p-4 rounded bg-light">
-                            <i class="fas fa-code fa-3x text-primary mb-3"></i>
-                            <h5>Clean Code</h5>
-                            <p class="mb-0 text-muted">Writing maintainable, efficient code</p>
-                        </div>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="about-box text-center p-4 rounded bg-light">
-                            <i class="fas fa-laptop-code fa-3x text-primary mb-3"></i>
-                            <h5>Modern Tech</h5>
-                            <p class="mb-0 text-muted">Using latest technologies</p>
-                        </div>
+                    <h4 class="feature-title">Clean Code</h4>
+                    <p class="feature-text">Writing maintainable, efficient code that follows best practices and design patterns</p>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="about-box text-center p-4 rounded bg-light">
-                            <i class="fas fa-project-diagram fa-3x text-primary mb-3"></i>
-                            <h5>Architecture</h5>
-                            <p class="mb-0 text-muted">Building scalable systems</p>
-                        </div>
+                    <h4 class="feature-title">Modern Tech</h4>
+                    <p class="feature-text">Leveraging cutting-edge technologies and frameworks to build innovative solutions</p>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
                     </div>
+                    <h4 class="feature-title">Architecture</h4>
+                    <p class="feature-text">Designing robust, scalable system architectures that can grow with your business</p>
                 </div>
             </div>
         </div>
