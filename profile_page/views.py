@@ -1,8 +1,15 @@
-# example/views.py
-from django.shortcuts import render
-from . import models, utils
+# Standard library
+import logging
 from datetime import datetime
+
+# Django
+from django.shortcuts import render
 from django.contrib.auth.models import User
+
+# Local
+from . import models, utils
+
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -18,12 +25,16 @@ def index(request):
                                  about.start_working.month, about.start_working.day, tzinfo=utils.jkt_tz)
         delta = now - start_working
         data["years_experience"] = int(delta.total_seconds()//(3600*24*365.25))
-    except:
-        print("About data is empty")
+    except models.About.DoesNotExist:
+        logger.warning("About data is empty")
 
     # get user data
-    user = User.objects.get()
-    data["user"] = user
+    try:
+        user = User.objects.first()  # Or use a specific filter like User.objects.get(username='admin')
+        data["user"] = user
+    except User.DoesNotExist:
+        logger.warning("No user found")
+        data["user"] = None
 
     # get skills data
     skills = models.Skill.objects.all()
