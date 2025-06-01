@@ -28,21 +28,41 @@
     font-weight: 500;
     transition: all 0.3s ease;
     margin: 0 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Primary button: Blue background with white text */
 .btn-primary {
     background-color: var(--primary);
     border-color: var(--primary);
+    color: #fff;
 }
 
+/* Primary button hover: White background with blue text */
+.btn-primary:hover {
+    background-color: #fff;
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+/* Outline button: White background with blue text */
 .btn-outline-primary {
     color: var(--primary);
     border-color: var(--primary);
+    background-color: #fff;
 }
 
+/* Outline button hover: Blue background with white text */
 .btn-outline-primary:hover {
     background-color: var(--primary);
+    border-color: var(--primary);
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
 }
 
 .btn-play {

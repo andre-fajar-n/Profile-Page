@@ -46,12 +46,44 @@ h1, h2, h3, h4, .display-1, .display-2, .display-3, .display-4, .display-5 {
 /*** Button ***/
 .btn {
     font-weight: 500;
-    transition: .5s;
+    transition: all 0.3s ease;
+    border-radius: 5px;
 }
 
-.btn.btn-primary,
-.btn.btn-secondary {
+/* Primary button: Blue background with white text */
+.btn.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
     color: #FFFFFF;
+}
+
+/* Primary button hover: White background with blue text */
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary:active {
+    background-color: #fff;
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+/* Outline button: White background with blue text */
+.btn.btn-outline-primary {
+    color: var(--primary);
+    background-color: #fff;
+    border-color: var(--primary);
+}
+
+/* Outline button hover: Blue background with white text */
+.btn.btn-outline-primary:hover,
+.btn.btn-outline-primary:focus,
+.btn.btn-outline-primary:active {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
 }
 
 .btn-square {
@@ -77,6 +109,10 @@ h1, h2, h3, h4, .display-1, .display-2, .display-3, .display-4, .display-5 {
     align-items: center;
     justify-content: center;
     font-weight: normal;
+}
+
+.rounded-pill {
+    border-radius: 50px !important;
 }
 
 /* Modern Card Styling */
