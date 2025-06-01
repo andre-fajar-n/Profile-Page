@@ -1,4 +1,4 @@
-make-migrations:
+update-migration-file:
 	python manage.py makemigrations profile_page
 
 migrate-up:

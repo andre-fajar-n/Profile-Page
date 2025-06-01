@@ -66,7 +66,7 @@ def index(request):
     data["awards"] = awards
 
     # get master data
-    temp_master = models.MasterData.objects.all()
+    temp_master = models.ProjectCategory.objects.all()
     masters = []
     for val in temp_master:
         temp = val.name.replace("-", " ").title()

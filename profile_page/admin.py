@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import About, Skill, Experience, Award, Education, MasterData, Project
+from .models import About, Skill, Experience, Award, Education, ProjectCategory, Project
 
 # Register your models here.
 
@@ -88,11 +88,11 @@ class AwardAdmin(admin.ModelAdmin):
 admin.site.register(Award, AwardAdmin)
 
 
-class MasterDataAdmin(admin.ModelAdmin):
+class ProjectCategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_at', 'updated_at', 'deleted_at')
 
 
-admin.site.register(MasterData, MasterDataAdmin)
+admin.site.register(ProjectCategory, ProjectCategoryAdmin)
 
 
 class ProjectAdmin(admin.ModelAdmin):
