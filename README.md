@@ -2,8 +2,6 @@
 
 A modern, responsive personal portfolio website built with Django. This project showcases professional experience, skills, education, awards, and projects in an elegant and interactive layout.
 
-![Profile Page Screenshot](https://via.placeholder.com/800x400?text=Profile+Page+Screenshot)
-
 ## Features
 
 - **Responsive Design**: Fully responsive layout that works on all devices
@@ -170,5 +168,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [Google Fonts](https://fonts.google.com/)
 - [Typed.js](https://github.com/mattboldt/typed.js/)
 - [WOW.js](https://wowjs.uk/)
-- [Owl Carousel](https://owlcarousel2.github.io/OwlCarousel2/)
 - [Isotope](https://isotope.metafizzy.co/)
