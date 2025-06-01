@@ -2,12 +2,47 @@
 /*** Header ***/
 #home {
     margin-bottom: 6rem;
-    background: url(../img/bg-header.png) left top no-repeat;
+    /* Remove the background image */
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(76, 201, 240, 0.05) 100%);
+    padding: 3rem 0;
 }
 
 .typed-cursor {
     font-size: 30px;
     color: var(--dark);
+}
+
+/* Badge styling */
+.badge.bg-primary {
+    background-color: var(--primary) !important;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 30px;
+}
+
+/* Header buttons styling */
+.header-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: #fff;
 }
 
 .btn-play {
