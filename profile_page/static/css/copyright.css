@@ -1,0 +1,36 @@
+/*** Copyright ***/
+.bg-dark {
+    background-color: var(--primary) !important; /* Using primary blue instead of dark */
+}
+
+.container-fluid.bg-dark {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Base text styling */
+.container-fluid.bg-dark {
+    color: #ffffff !important; /* White text for maximum contrast */
+}
+
+/* Base link styling */
+.container-fluid.bg-dark a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: var(--light) !important; /* Light color for good contrast */
+}
+
+/* Primary links */
+.container-fluid.bg-dark a.text-primary {
+    color: var(--light) !important; /* Light color for good contrast */
+}
+
+/* Underlined links */
+.container-fluid.bg-dark a.border-bottom {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Hover effect */
+.container-fluid.bg-dark a:hover {
+    color: var(--accent) !important; /* Light blue accent on hover */
+    border-color: var(--accent) !important;
+}
