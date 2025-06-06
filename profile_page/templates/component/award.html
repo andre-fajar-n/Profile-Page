@@ -17,6 +17,21 @@
                         <h4 class="mb-3">{{award.title}}</h4>
                         <h6 class="mb-3">{{award.issuer}}, <span class="text-primary">{{award.issue_date|date:"j F Y"}}</span></h6>
                         <span>{{award.description}}</span>
+                        
+                        {% if award.associated_with %}
+                        <div class="associated-with mt-3">
+                            <span class="text-primary fw-bold">Associated with:</span>
+                            {% if award.associated_with_type == 'experience' %}
+                                <span class="badge bg-secondary">
+                                    {{ award.associated_with.position }} at {{ award.associated_with.company }}
+                                </span>
+                            {% elif award.associated_with_type == 'education' %}
+                                <span class="badge bg-secondary">
+                                    {{ award.associated_with.degree }} at {{ award.associated_with.school }}
+                                </span>
+                            {% endif %}
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

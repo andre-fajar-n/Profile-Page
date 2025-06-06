@@ -55,6 +55,38 @@ class BaseModel(models.Model):
         self.deleted_at = None
         self.save()
 
+class AssociationMixin(models.Model):
+    """Mixin for models that can be associated with Experience or Education"""
+    associated_with_id = models.PositiveIntegerField(null=True, blank=True)
+    associated_with_type = models.CharField(max_length=20, null=True, blank=True, 
+                                           choices=[('experience', 'Experience'), ('education', 'Education')])
+    
+    class Meta:
+        abstract = True
+    
+    @property
+    def associated_with(self):
+        """Get the associated Experience or Education object"""
+        if not self.associated_with_id or not self.associated_with_type:
+            return None
+            
+        if self.associated_with_type == 'experience':
+            return Experience.objects.filter(id=self.associated_with_id).first()
+        elif self.associated_with_type == 'education':
+            return Education.objects.filter(id=self.associated_with_id).first()
+        return None
+
+    def clean(self):
+        super().clean()
+        # Validate that the referenced object exists
+        if self.associated_with_id and self.associated_with_type:
+            if self.associated_with_type == 'experience':
+                if not Experience.objects.filter(id=self.associated_with_id).exists():
+                    raise ValidationError({'associated_with_id': 'Referenced Experience does not exist'})
+            elif self.associated_with_type == 'education':
+                if not Education.objects.filter(id=self.associated_with_id).exists():
+                    raise ValidationError({'associated_with_id': 'Referenced Education does not exist'})
+
 
 class About(BaseModel):
     fullname = models.CharField(max_length=100, null=False)
@@ -104,7 +136,7 @@ class Education(BaseModel):
     def __str__(self) -> str:
         return self.degree + ", " + self.school
 
-class Award(BaseModel):
+class Award(BaseModel, AssociationMixin):
     title = models.CharField(max_length=255, null=False)
     issuer = models.CharField(max_length=255, null=False)
     issue_date = models.DateField(null=False)
@@ -119,12 +151,12 @@ class ProjectCategory(BaseModel):
     def __str__(self) -> str:
         return self.name
 
-class Project(BaseModel):
+class Project(BaseModel, AssociationMixin):
     name = models.CharField(max_length=255, null=False)
     description = models.TextField(null=False)
     technology = models.CharField(max_length=100, null=False)
     tools = models.CharField(max_length=100, null=False)
-    live_url = models.URLField(null=True)
+    live_url = models.URLField(null=True, blank=True)
     source_url = models.URLField(null=True)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True, blank=True)
@@ -136,34 +168,6 @@ class Project(BaseModel):
                                null=True, blank=True, related_name="fk_master_data_topic2")
     topic3 = models.ForeignKey(ProjectCategory, on_delete=models.RESTRICT,
                                null=True, blank=True, related_name="fk_master_data_topic3")
-    
-    # Fields for association
-    associated_with_id = models.PositiveIntegerField(null=True, blank=True)
-    associated_with_type = models.CharField(max_length=20, null=True, blank=True, 
-                                           choices=[('experience', 'Experience'), ('education', 'Education')])
 
     def __str__(self) -> str:
         return self.name
-    
-    @property
-    def associated_with(self):
-        """Get the associated Experience or Education object"""
-        if not self.associated_with_id or not self.associated_with_type:
-            return None
-            
-        if self.associated_with_type == 'experience':
-            return Experience.objects.filter(id=self.associated_with_id).first()
-        elif self.associated_with_type == 'education':
-            return Education.objects.filter(id=self.associated_with_id).first()
-        return None
-
-    def clean(self):
-        super().clean()
-        # Validate that the referenced object exists
-        if self.associated_with_id and self.associated_with_type:
-            if self.associated_with_type == 'experience':
-                if not Experience.objects.filter(id=self.associated_with_id).exists():
-                    raise ValidationError({'associated_with_id': 'Referenced Experience does not exist'})
-            elif self.associated_with_type == 'education':
-                if not Education.objects.filter(id=self.associated_with_id).exists():
-                    raise ValidationError({'associated_with_id': 'Referenced Education does not exist'})

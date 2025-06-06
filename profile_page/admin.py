@@ -23,47 +23,67 @@ class CombinedModelChoiceField(forms.ChoiceField):
         kwargs['choices'] = choices
         super().__init__(*args, **kwargs)
 
-class ProjectAdminForm(forms.ModelForm):
-    """Custom form for Project with a combined dropdown for associated_with"""
-    # Combined field for Experience and Education
-    associated_with = CombinedModelChoiceField(
-        required=False,
-        label="Associated With"
-    )
-    
-    class Meta:
-        model = Project
-        fields = '__all__'
-    
+class AssociationAdminFormMixin:
+    """Mixin for admin forms that handle associated_with fields"""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        # Hide the original fields
-        self.fields['associated_with_id'].widget = forms.HiddenInput()
-        self.fields['associated_with_type'].widget = forms.HiddenInput()
-        
-        # If we're editing an existing object, set the initial value for associated_with
-        if self.instance and self.instance.pk:
-            if self.instance.associated_with_type and self.instance.associated_with_id:
-                self.fields['associated_with'].initial = f'{self.instance.associated_with_type}-{self.instance.associated_with_id}'
+        # Add the combined field if the model has associated_with fields
+        if 'associated_with_id' in self.fields and 'associated_with_type' in self.fields:
+            self.fields['associated_with'] = CombinedModelChoiceField(
+                required=False,
+                label="Associated With"
+            )
+            
+            # Hide the original fields
+            self.fields['associated_with_id'].widget = forms.HiddenInput()
+            self.fields['associated_with_type'].widget = forms.HiddenInput()
+            
+            # If we're editing an existing object, set the initial value for associated_with
+            if self.instance and self.instance.pk:
+                if self.instance.associated_with_type and self.instance.associated_with_id:
+                    self.fields['associated_with'].initial = f'{self.instance.associated_with_type}-{self.instance.associated_with_id}'
     
     def clean(self):
         cleaned_data = super().clean()
-        associated_with = cleaned_data.get('associated_with')
         
-        if associated_with:
-            # Parse the combined value to get model and ID
-            model_name, object_id = associated_with.split('-')
+        # Process the associated_with field if it exists
+        if 'associated_with' in self.fields:
+            associated_with = cleaned_data.get('associated_with')
             
-            # Set the associated_with_type and associated_with_id
-            cleaned_data['associated_with_type'] = model_name
-            cleaned_data['associated_with_id'] = int(object_id)
-        else:
-            # Clear the fields if nothing is selected
-            cleaned_data['associated_with_type'] = None
-            cleaned_data['associated_with_id'] = None
+            if associated_with:
+                # Parse the combined value to get model and ID
+                model_name, object_id = associated_with.split('-')
+                
+                # Set the associated_with_type and associated_with_id
+                cleaned_data['associated_with_type'] = model_name
+                cleaned_data['associated_with_id'] = int(object_id)
+            else:
+                # Clear the fields if nothing is selected
+                cleaned_data['associated_with_type'] = None
+                cleaned_data['associated_with_id'] = None
         
         return cleaned_data
+
+class ProjectAdminForm(AssociationAdminFormMixin, forms.ModelForm):
+    """Custom form for Project with a combined dropdown for associated_with"""
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+class AwardAdminForm(AssociationAdminFormMixin, forms.ModelForm):
+    """Custom form for Award with a combined dropdown for associated_with"""
+    class Meta:
+        model = Award
+        fields = '__all__'
+
+class AssociationAdminMixin:
+    """Mixin for ModelAdmin classes that handle associated_with fields"""
+    def get_associated_with(self, obj):
+        if obj.associated_with:
+            return str(obj.associated_with)
+        return "-"
+    get_associated_with.short_description = "Associated With"
 
 class ExperienceAdmin(admin.ModelAdmin):
     list_display = (
@@ -96,7 +116,7 @@ class EducationAdmin(admin.ModelAdmin):
 
 admin.site.register(Education, EducationAdmin)
 
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(AssociationAdminMixin, admin.ModelAdmin):
     form = ProjectAdminForm
     list_display = (
         'name',
@@ -116,14 +136,23 @@ class ProjectAdmin(admin.ModelAdmin):
         'updated_at',
         'deleted_at',
     )
-    
-    def get_associated_with(self, obj):
-        if obj.associated_with:
-            return str(obj.associated_with)
-        return "-"
-    get_associated_with.short_description = "Associated With"
 
 admin.site.register(Project, ProjectAdmin)
+
+class AwardAdmin(AssociationAdminMixin, admin.ModelAdmin):
+    form = AwardAdminForm
+    list_display = (
+        'title',
+        'issuer',
+        'issue_date',
+        'description',
+        'get_associated_with',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    )
+
+admin.site.register(Award, AwardAdmin)
 
 class AboutAdmin(admin.ModelAdmin):
     list_display = (
@@ -154,19 +183,6 @@ class SkillAdmin(admin.ModelAdmin):
     )
 
 admin.site.register(Skill, SkillAdmin)
-
-class AwardAdmin(admin.ModelAdmin):
-    list_display = (
-        'title',
-        'issuer',
-        'issue_date',
-        'description',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    )
-
-admin.site.register(Award, AwardAdmin)
 
 class ProjectCategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_at', 'updated_at', 'deleted_at')
