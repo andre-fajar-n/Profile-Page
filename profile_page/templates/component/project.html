@@ -39,11 +39,11 @@
                         {% if project.associated_with %}
                         <div class="associated-with mt-3 mb-2">
                             <span class="text-primary fw-bold">Associated with:</span>
-                            {% if project.associated_with|get_class_name == 'Experience' %}
+                            {% if project.associated_with_type == 'experience' %}
                                 <span class="badge bg-secondary">
                                     {{ project.associated_with.position }} at {{ project.associated_with.company }}
                                 </span>
-                            {% elif project.associated_with|get_class_name == 'Education' %}
+                            {% elif project.associated_with_type == 'education' %}
                                 <span class="badge bg-secondary">
                                     {{ project.associated_with.degree }} at {{ project.associated_with.school }}
                                 </span>

@@ -78,8 +78,7 @@ def index(request):
 
     # get projects with their associations
     projects = models.Project.objects.all()
-    for project in projects:
-        project.associated = project.associated_with
+    # No need to manually set associated property as it's now a property method
     data["projects"] = projects
 
     return render(request, "index.html", data)

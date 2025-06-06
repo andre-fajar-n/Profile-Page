@@ -1,8 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.db.models.query import QuerySet
-from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
-from django.contrib.contenttypes.models import ContentType
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -89,8 +88,6 @@ class Experience(BaseModel):
     description = models.TextField(null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True, blank=True)
-    # Add reverse relation for projects
-    projects = GenericRelation('ProjectAssociation', related_query_name='experience')
 
     def __str__(self) -> str:
         return self.position + ", " + self.company
@@ -103,8 +100,6 @@ class Education(BaseModel):
     description = models.TextField(null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True, blank=True)
-    # Add reverse relation for projects
-    projects = GenericRelation('ProjectAssociation', related_query_name='education')
 
     def __str__(self) -> str:
         return self.degree + ", " + self.school
@@ -124,21 +119,6 @@ class ProjectCategory(BaseModel):
     def __str__(self) -> str:
         return self.name
 
-class ProjectAssociation(BaseModel):
-    """Model to associate a project with either Experience or Education"""
-    project = models.ForeignKey('Project', on_delete=models.CASCADE, related_name='associations')
-    
-    # Generic foreign key fields
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey('content_type', 'object_id')
-    
-    class Meta:
-        unique_together = ('project', 'content_type', 'object_id')
-    
-    def __str__(self):
-        return f"{self.project.name} - {self.content_object}"
-
 class Project(BaseModel):
     name = models.CharField(max_length=255, null=False)
     description = models.TextField(null=False)
@@ -156,6 +136,11 @@ class Project(BaseModel):
                                null=True, blank=True, related_name="fk_master_data_topic2")
     topic3 = models.ForeignKey(ProjectCategory, on_delete=models.RESTRICT,
                                null=True, blank=True, related_name="fk_master_data_topic3")
+    
+    # Fields for association
+    associated_with_id = models.PositiveIntegerField(null=True, blank=True)
+    associated_with_type = models.CharField(max_length=20, null=True, blank=True, 
+                                           choices=[('experience', 'Experience'), ('education', 'Education')])
 
     def __str__(self) -> str:
         return self.name
@@ -163,5 +148,22 @@ class Project(BaseModel):
     @property
     def associated_with(self):
         """Get the associated Experience or Education object"""
-        association = self.associations.first()
-        return association.content_object if association else None
+        if not self.associated_with_id or not self.associated_with_type:
+            return None
+            
+        if self.associated_with_type == 'experience':
+            return Experience.objects.filter(id=self.associated_with_id).first()
+        elif self.associated_with_type == 'education':
+            return Education.objects.filter(id=self.associated_with_id).first()
+        return None
+
+    def clean(self):
+        super().clean()
+        # Validate that the referenced object exists
+        if self.associated_with_id and self.associated_with_type:
+            if self.associated_with_type == 'experience':
+                if not Experience.objects.filter(id=self.associated_with_id).exists():
+                    raise ValidationError({'associated_with_id': 'Referenced Experience does not exist'})
+            elif self.associated_with_type == 'education':
+                if not Education.objects.filter(id=self.associated_with_id).exists():
+                    raise ValidationError({'associated_with_id': 'Referenced Education does not exist'})
