@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.db.models.query import QuerySet
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
+from django.contrib.contenttypes.models import ContentType
 
 # Create your models here.
 
@@ -87,6 +89,8 @@ class Experience(BaseModel):
     description = models.TextField(null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True, blank=True)
+    # Add reverse relation for projects
+    projects = GenericRelation('ProjectAssociation', related_query_name='experience')
 
     def __str__(self) -> str:
         return self.position + ", " + self.company
@@ -99,6 +103,8 @@ class Education(BaseModel):
     description = models.TextField(null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True, blank=True)
+    # Add reverse relation for projects
+    projects = GenericRelation('ProjectAssociation', related_query_name='education')
 
     def __str__(self) -> str:
         return self.degree + ", " + self.school
@@ -118,6 +124,21 @@ class ProjectCategory(BaseModel):
     def __str__(self) -> str:
         return self.name
 
+class ProjectAssociation(BaseModel):
+    """Model to associate a project with either Experience or Education"""
+    project = models.ForeignKey('Project', on_delete=models.CASCADE, related_name='associations')
+    
+    # Generic foreign key fields
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+    
+    class Meta:
+        unique_together = ('project', 'content_type', 'object_id')
+    
+    def __str__(self):
+        return f"{self.project.name} - {self.content_object}"
+
 class Project(BaseModel):
     name = models.CharField(max_length=255, null=False)
     description = models.TextField(null=False)
@@ -135,8 +156,12 @@ class Project(BaseModel):
                                null=True, blank=True, related_name="fk_master_data_topic2")
     topic3 = models.ForeignKey(ProjectCategory, on_delete=models.RESTRICT,
                                null=True, blank=True, related_name="fk_master_data_topic3")
-    associated_with = models.ForeignKey(
-        null=True, blank=True, to=Experience, on_delete=models.CASCADE, related_name="fk_associated_with")
 
     def __str__(self) -> str:
         return self.name
+    
+    @property
+    def associated_with(self):
+        """Get the associated Experience or Education object"""
+        association = self.associations.first()
+        return association.content_object if association else None

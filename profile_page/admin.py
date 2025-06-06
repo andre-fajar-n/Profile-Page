@@ -1,42 +1,12 @@
 from django.contrib import admin
-from .models import About, Skill, Experience, Award, Education, ProjectCategory, Project
+from django.contrib.contenttypes.admin import GenericTabularInline
+from .models import About, Skill, Experience, Award, Education, ProjectCategory, Project, ProjectAssociation
 
 # Register your models here.
 
-
-class AboutAdmin(admin.ModelAdmin):
-    list_display = (
-        'fullname',
-        'nickname',
-        'job_position',
-        'cv_url',
-        'start_working',
-        'summary',
-        'phone_number',
-        'address',
-        'facebook_username',
-        'github_username',
-        'linkedin_username',
-        'instagram_username',
-        'created_at',
-    )
-
-
-admin.site.register(About, AboutAdmin)
-
-
-class SkillAdmin(admin.ModelAdmin):
-    list_display = (
-        'name',
-        'image_url',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    )
-
-
-admin.site.register(Skill, SkillAdmin)
-
+class ProjectAssociationInline(GenericTabularInline):
+    model = ProjectAssociation
+    extra = 1
 
 class ExperienceAdmin(admin.ModelAdmin):
     list_display = (
@@ -50,10 +20,9 @@ class ExperienceAdmin(admin.ModelAdmin):
         'updated_at',
         'deleted_at',
     )
-
+    inlines = [ProjectAssociationInline]
 
 admin.site.register(Experience, ExperienceAdmin)
-
 
 class EducationAdmin(admin.ModelAdmin):
     list_display = (
@@ -68,32 +37,14 @@ class EducationAdmin(admin.ModelAdmin):
         'updated_at',
         'deleted_at',
     )
-
+    inlines = [ProjectAssociationInline]
 
 admin.site.register(Education, EducationAdmin)
 
-
-class AwardAdmin(admin.ModelAdmin):
-    list_display = (
-        'title',
-        'issuer',
-        'issue_date',
-        'description',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    )
-
-
-admin.site.register(Award, AwardAdmin)
-
-
-class ProjectCategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'created_at', 'updated_at', 'deleted_at')
-
-
-admin.site.register(ProjectCategory, ProjectCategoryAdmin)
-
+class ProjectAssociationInline(admin.TabularInline):
+    model = ProjectAssociation
+    extra = 1
+    fields = ('content_type', 'object_id')
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = (
@@ -109,11 +60,17 @@ class ProjectAdmin(admin.ModelAdmin):
         'topic1',
         'topic2',
         'topic3',
-        'associated_with',
         'created_at',
         'updated_at',
         'deleted_at',
     )
-
+    inlines = [ProjectAssociationInline]
 
 admin.site.register(Project, ProjectAdmin)
+
+# Register other models
+admin.site.register(About)
+admin.site.register(Skill)
+admin.site.register(Award)
+admin.site.register(ProjectCategory)
+admin.site.register(ProjectAssociation)

@@ -1,0 +1,18 @@
+<!-- In your project template -->
+{% for project in projects %}
+<div class="project-item">
+    <h3>{{ project.name }}</h3>
+    <!-- ... other project details ... -->
+    
+    {% if project.associated %}
+        <div class="associated-with">
+            <h5>Associated with:</h5>
+            {% if project.associated|get_class_name == 'Experience' %}
+                <p>{{ project.associated.position }} at {{ project.associated.company }}</p>
+            {% elif project.associated|get_class_name == 'Education' %}
+                <p>{{ project.associated.degree }} at {{ project.associated.school }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+{% endfor %}

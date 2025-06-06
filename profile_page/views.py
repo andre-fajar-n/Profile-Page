@@ -76,14 +76,10 @@ def index(request):
         })
     data["masters"] = masters
 
-    # get project data - sort by end_date (current projects first, then by most recent)
-    projects = models.Project.objects.annotate(
-        is_current=Case(
-            When(end_date=None, then=Value(True)),
-            default=Value(False),
-            output_field=BooleanField()
-        )
-    ).order_by('-is_current', '-end_date', '-start_date')
+    # get projects with their associations
+    projects = models.Project.objects.all()
+    for project in projects:
+        project.associated = project.associated_with
     data["projects"] = projects
 
     return render(request, "index.html", data)
