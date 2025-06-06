@@ -68,9 +68,53 @@ class ProjectAdmin(admin.ModelAdmin):
 
 admin.site.register(Project, ProjectAdmin)
 
-# Register other models
-admin.site.register(About)
-admin.site.register(Skill)
-admin.site.register(Award)
-admin.site.register(ProjectCategory)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = (
+        'fullname',
+        'nickname',
+        'job_position',
+        'cv_url',
+        'start_working',
+        'summary',
+        'phone_number',
+        'address',
+        'facebook_username',
+        'github_username',
+        'linkedin_username',
+        'instagram_username',
+        'created_at',
+    )
+
+admin.site.register(About, AboutAdmin)
+
+class SkillAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'image_url',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    )
+
+admin.site.register(Skill, SkillAdmin)
+
+class AwardAdmin(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'issuer',
+        'issue_date',
+        'description',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    )
+
+
+admin.site.register(Award, AwardAdmin)
+
+class ProjectCategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'created_at', 'updated_at', 'deleted_at')
+
+admin.site.register(ProjectCategory, ProjectCategoryAdmin)
+
 admin.site.register(ProjectAssociation)
