@@ -13,9 +13,6 @@
                     <div class="timeline-item {% cycle 'left' 'right' %} wow {% cycle 'fadeInLeft' 'fadeInRight' %}" data-wow-delay="0.{% cycle '3' '5' %}s">
                         <div class="timeline-panel education-panel">
                             <div class="timeline-head">
-                                <div class="timeline-icon education-icon">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
                                 <div class="timeline-date">
                                     <span>{{edu.start_date|date:"F Y"}} - {% if edu.end_date %}{{edu.end_date|date:"F Y"}}{% else %}Present{% endif %}</span>
                                     <small>{% if edu.location %}{{edu.location}} • {% endif %}{{edu.start_date|timesince:edu.end_date|default:"Ongoing"}}</small>

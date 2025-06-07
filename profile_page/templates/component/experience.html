@@ -13,9 +13,6 @@
                     <div class="timeline-item {% cycle 'left' 'right' %} wow {% cycle 'fadeInLeft' 'fadeInRight' %}" data-wow-delay="0.{% cycle '3' '5' %}s">
                         <div class="timeline-panel">
                             <div class="timeline-head">
-                                <div class="timeline-icon">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
                                 <div class="timeline-date">
                                     <span>{{experience.start_date|date:"F Y"}} - {% if experience.end_date %}{{experience.end_date|date:"F Y"}}{% else %}Present{% endif %}</span>
                                     <small>{% if experience.location %}{{experience.location}} • {% endif %}{{experience.start_date|timesince:experience.end_date|default:"Ongoing"}}</small>

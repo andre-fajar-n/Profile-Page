@@ -44,7 +44,7 @@
 /* Timeline panels */
 .timeline-panel {
     position: relative;
-    width: calc(50% - 40px);
+    width: calc(50% - 30px);
     background: #ffffff;
     border-radius: var(--border-radius);
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -52,33 +52,9 @@
     overflow: hidden;
 }
 
-.timeline-panel:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(67, 97, 238, 0.1);
-}
-
-/* Timeline icon */
+/* Hide timeline icon */
 .timeline-icon {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    top: 20px;
-    z-index: 10;
-    box-shadow: 0 5px 10px rgba(67, 97, 238, 0.3);
-}
-
-.timeline-item.left .timeline-icon {
-    right: -25px;
-}
-
-.timeline-item.right .timeline-icon {
-    left: -25px;
+    display: none;
 }
 
 /* Timeline date */
@@ -148,44 +124,22 @@
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
     .timeline-wrapper::before {
-        left: 40px;
+        left: 30px;
     }
     
     .timeline-item.left .timeline-panel,
     .timeline-item.right .timeline-panel {
-        width: calc(100% - 90px);
+        width: calc(100% - 60px);
         float: right;
-        margin-left: 90px;
+        margin-left: 60px;
         margin-right: 0;
-    }
-    
-    .timeline-item.left .timeline-icon,
-    .timeline-item.right .timeline-icon {
-        left: 15px;
     }
 }
 
 @media (max-width: 575.98px) {
-    .timeline-wrapper::before {
-        left: 20px;
-    }
-    
     .timeline-item.left .timeline-panel,
     .timeline-item.right .timeline-panel {
-        width: calc(100% - 70px);
-        margin-left: 70px;
-    }
-    
-    .timeline-item.left .timeline-icon,
-    .timeline-item.right .timeline-icon {
-        left: -5px;
-    }
-    
-    .timeline-date {
-        padding: 10px 15px;
-    }
-    
-    .timeline-body {
-        padding: 15px;
+        width: calc(100% - 50px);
+        margin-left: 50px;
     }
 }

@@ -41,12 +41,12 @@ def index(request):
     skills = models.Skill.objects.all()
     data["skills"] = skills
 
-    # get experiences data - use model's ordering
-    experiences = models.Experience.objects.all()
+    # get experiences data - sort by is_current (desc) and start_date (desc)
+    experiences = models.Experience.objects.order_by('-is_current', '-start_date')
     data["experiences"] = experiences
 
-    # get education data - use model's ordering
-    education = models.Education.objects.all()
+    # get education data - sort by is_current (desc) and start_date (desc)
+    education = models.Education.objects.order_by('-is_current', '-start_date')
     data["education"] = education
 
     # get award data
