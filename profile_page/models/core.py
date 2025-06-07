@@ -1,6 +1,6 @@
 from django.db import models
 from .base import BaseModel
-from .mixins import AssociationMixin
+from .mixins import AssociationMixin, TimelineMixin
 
 class About(BaseModel):
     fullname = models.CharField(max_length=100, null=False)
@@ -26,25 +26,25 @@ class Skill(BaseModel):
     def __str__(self) -> str:
         return self.name
 
-class Experience(BaseModel):
+class Experience(BaseModel, TimelineMixin):
     position = models.CharField(max_length=50, null=False)
     company = models.CharField(max_length=50, null=False)
     company_site = models.URLField(null=True, blank=True)
+    company_logo = models.URLField(null=True, blank=True, help_text="URL to company logo image")
     description = models.TextField(null=False)
-    start_date = models.DateField(null=False)
-    end_date = models.DateField(null=True, blank=True)
-
+    location = models.CharField(max_length=100, null=True, blank=True, help_text="Job location (e.g., 'Remote', 'New York, NY')")
+    
     def __str__(self) -> str:
         return self.position + ", " + self.company
 
-class Education(BaseModel):
+class Education(BaseModel, TimelineMixin):
     school = models.CharField(max_length=255, null=False)
     school_site = models.URLField(null=True, blank=True)
+    school_logo = models.URLField(null=True, blank=True, help_text="URL to school logo image")
     degree = models.CharField(max_length=50, null=False)
     field_of_study = models.CharField(max_length=50, null=False)
     description = models.TextField(null=False)
-    start_date = models.DateField(null=False)
-    end_date = models.DateField(null=True, blank=True)
+    location = models.CharField(max_length=100, null=True, blank=True, help_text="School location")
 
     def __str__(self) -> str:
         return self.degree + ", " + self.school

@@ -2,23 +2,45 @@
 <div class="container-xxl py-6 pb-5" id="experience">
     <div class="container">
         <div class="row g-5">
-            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
-                <h1 class="display-5 mb-5">Experiences</h1>
-                <div class="tab-content">
-                    <div class="row gy-5 gx-4">
-                        {% for experience in experiences %}
-                        <div class="col-sm-6">
-                            <h5>{{experience.position|capfirst}}</h5>
-                            <h6 style="display:inline" class="mb-0">{{experience.company|capfirst}}</h6>
-                            {% if experience.company_site %}
-                            <a href="{{experience.company_site}}" target="_blank" class="bi-arrow-right"> Company site</a>
-                            {% endif %}
-                            <p class="text-primary mb-1">{{experience.start_date|date:"F Y"}} - {{experience.end_date|date:"F Y"}} ({{experience.start_date|timesince:experience.end_date}})</p>
-                            <hr class="text-primary my-2">
-                            <pre>{{experience.description}}</pre>
+            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="section-header text-center mb-5">
+                    <h1 class="display-5 fw-bold mb-4">Work Experience</h1>
+                    <div class="divider-center"></div>
+                </div>
+                
+                <div class="timeline-wrapper">
+                    {% for experience in experiences %}
+                    <div class="timeline-item {% cycle 'left' 'right' %} wow {% cycle 'fadeInLeft' 'fadeInRight' %}" data-wow-delay="0.{% cycle '3' '5' %}s">
+                        <div class="timeline-panel">
+                            <div class="timeline-head">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="timeline-date">
+                                    <span>{{experience.start_date|date:"F Y"}} - {% if experience.end_date %}{{experience.end_date|date:"F Y"}}{% else %}Present{% endif %}</span>
+                                    <small>{% if experience.location %}{{experience.location}} • {% endif %}{{experience.start_date|timesince:experience.end_date|default:"Ongoing"}}</small>
+                                </div>
+                            </div>
+                            <div class="timeline-body">
+                                <h4 class="timeline-title">{{experience.position|capfirst}}</h4>
+                                <h5 class="timeline-subtitle">
+                                    {% if experience.company_logo %}
+                                    <img src="{{experience.company_logo}}" alt="{{experience.company}}" class="company-logo">
+                                    {% endif %}
+                                    {{experience.company|capfirst}}
+                                    {% if experience.company_site %}
+                                    <a href="{{experience.company_site}}" target="_blank" class="company-link">
+                                        <i class="bi bi-link-45deg"></i>
+                                    </a>
+                                    {% endif %}
+                                </h5>
+                                <div class="timeline-text">
+                                    {{experience.description|linebreaks}}
+                                </div>
+                            </div>
                         </div>
-                        {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

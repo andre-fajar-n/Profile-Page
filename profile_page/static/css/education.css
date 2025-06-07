@@ -1,0 +1,36 @@
+/*** Education Timeline ***/
+/* Reuse the timeline styles from experience.css */
+/* Add education-specific styles */
+
+.education-panel {
+    border-top: 4px solid var(--accent);
+}
+
+.education-icon {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+}
+
+.school-logo {
+    height: 24px;
+    width: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.school-link {
+    margin-left: 8px;
+    color: var(--accent);
+    transition: all 0.3s ease;
+}
+
+.school-link:hover {
+    color: var(--primary);
+}
+
+/* Add company logo styling to experience.css */
+.company-logo {
+    height: 24px;
+    width: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+}

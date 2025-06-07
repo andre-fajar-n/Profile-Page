@@ -41,24 +41,12 @@ def index(request):
     skills = models.Skill.objects.all()
     data["skills"] = skills
 
-    # get experiences data - sort by end_date (current jobs first, then by most recent)
-    experiences = models.Experience.objects.annotate(
-        is_current=Case(
-            When(end_date=None, then=Value(True)),
-            default=Value(False),
-            output_field=BooleanField()
-        )
-    ).order_by('-is_current', '-end_date', '-start_date')
+    # get experiences data - use model's ordering
+    experiences = models.Experience.objects.all()
     data["experiences"] = experiences
 
-    # get education data - sort by end_date (current education first, then by most recent)
-    education = models.Education.objects.annotate(
-        is_current=Case(
-            When(end_date=None, then=Value(True)),
-            default=Value(False),
-            output_field=BooleanField()
-        )
-    ).order_by('-is_current', '-end_date', '-start_date')
+    # get education data - use model's ordering
+    education = models.Education.objects.all()
     data["education"] = education
 
     # get award data
@@ -78,7 +66,6 @@ def index(request):
 
     # get projects with their associations
     projects = models.Project.objects.all()
-    # No need to manually set associated property as it's now a property method
     data["projects"] = projects
 
     return render(request, "index.html", data)

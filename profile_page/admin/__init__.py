@@ -10,13 +10,25 @@ class ExperienceAdmin(admin.ModelAdmin):
     list_display = (
         'position',
         'company',
-        'company_site',
-        'description',
+        'location',
+        'is_current',
         'start_date',
         'end_date',
         'created_at',
         'updated_at',
-        'deleted_at',
+    )
+    list_filter = ('is_current', 'company')
+    search_fields = ('position', 'company', 'description', 'location')
+    fieldsets = (
+        ('Job Information', {
+            'fields': ('position', 'company', 'company_site', 'company_logo', 'location')
+        }),
+        ('Timeline', {
+            'fields': ('start_date', 'end_date', 'is_current')
+        }),
+        ('Details', {
+            'fields': ('description',)
+        }),
     )
 
 admin.site.register(Experience, ExperienceAdmin)
@@ -24,15 +36,30 @@ admin.site.register(Experience, ExperienceAdmin)
 class EducationAdmin(admin.ModelAdmin):
     list_display = (
         'school',
-        'school_site',
         'degree',
         'field_of_study',
-        'description',
+        'location',
+        'is_current',
         'start_date',
         'end_date',
         'created_at',
         'updated_at',
-        'deleted_at',
+    )
+    list_filter = ('is_current', 'school', 'degree')
+    search_fields = ('school', 'degree', 'field_of_study', 'description', 'location')
+    fieldsets = (
+        ('School Information', {
+            'fields': ('school', 'school_site', 'school_logo', 'location')
+        }),
+        ('Degree Information', {
+            'fields': ('degree', 'field_of_study')
+        }),
+        ('Timeline', {
+            'fields': ('start_date', 'end_date', 'is_current')
+        }),
+        ('Details', {
+            'fields': ('description',)
+        }),
     )
 
 admin.site.register(Education, EducationAdmin)

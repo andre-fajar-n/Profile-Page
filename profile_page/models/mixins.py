@@ -38,3 +38,19 @@ class AssociationMixin(models.Model):
             elif self.associated_with_type == 'education':
                 if not Education.objects.filter(id=self.associated_with_id).exists():
                     raise ValidationError({'associated_with_id': 'Referenced Education does not exist'})
+
+class TimelineMixin(models.Model):
+    """Mixin for models with start_date, end_date, and is_current fields"""
+    start_date = models.DateField(null=False)
+    end_date = models.DateField(null=True, blank=True)
+    is_current = models.BooleanField(default=False, help_text="Check if this is current")
+    
+    class Meta:
+        abstract = True
+        ordering = ['-is_current', '-end_date', '-start_date']
+    
+    def save(self, *args, **kwargs):
+        # Automatically set is_current if end_date is None
+        if self.end_date is None:
+            self.is_current = True
+        super().save(*args, **kwargs)
