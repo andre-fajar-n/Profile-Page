@@ -10,7 +10,7 @@
                 
                 <div class="timeline-wrapper">
                     {% for experience in experiences %}
-                    <div class="timeline-item {% cycle 'left' 'right' %} wow {% cycle 'fadeInLeft' 'fadeInRight' %}" data-wow-delay="0.{% cycle '3' '5' %}s">
+                    <div class="timeline-item wow fadeInUp" data-wow-delay="0.3s">
                         <div class="timeline-panel">
                             <div class="timeline-head">
                                 <div class="timeline-date">
@@ -19,12 +19,12 @@
                                 </div>
                             </div>
                             <div class="timeline-body">
-                                <h4 class="timeline-title">{{experience.position|capfirst}}</h4>
+                                <h4 class="timeline-title">{{experience.position}}</h4>
                                 <h5 class="timeline-subtitle">
                                     {% if experience.company_logo %}
                                     <img src="{{experience.company_logo}}" alt="{{experience.company}}" class="company-logo">
                                     {% endif %}
-                                    {{experience.company|capfirst}}
+                                    {{experience.company}}
                                     {% if experience.company_site %}
                                     <a href="{{experience.company_site}}" target="_blank" class="company-link">
                                         <i class="bi bi-link-45deg"></i>

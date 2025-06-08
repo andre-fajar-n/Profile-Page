@@ -6,10 +6,6 @@
     border-top: 4px solid var(--accent);
 }
 
-.education-icon {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-}
-
 .school-logo {
     height: 24px;
     width: auto;

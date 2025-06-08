@@ -1,26 +1,18 @@
 /*** Experience Timeline ***/
 .timeline-wrapper {
     position: relative;
-    padding: 50px 0;
+    padding: 30px 0;
 }
 
-/* Timeline center line */
+/* Timeline center line - hide it since we're using full width */
 .timeline-wrapper::before {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background: linear-gradient(to bottom, rgba(67, 97, 238, 0.1), var(--primary), rgba(76, 201, 240, 0.1));
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -2px;
-    border-radius: 4px;
+    display: none;
 }
 
 /* Timeline items */
 .timeline-item {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     width: 100%;
 }
 
@@ -30,21 +22,10 @@
     clear: both;
 }
 
-/* Left and right positioning */
-.timeline-item.left .timeline-panel {
-    float: left;
-    margin-right: 30px;
-}
-
-.timeline-item.right .timeline-panel {
-    float: right;
-    margin-left: 30px;
-}
-
-/* Timeline panels */
+/* Timeline panels - make them full width */
 .timeline-panel {
     position: relative;
-    width: calc(50% - 30px);
+    width: 100%;
     background: #ffffff;
     border-radius: var(--border-radius);
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -119,27 +100,4 @@
 
 .timeline-text p:last-child {
     margin-bottom: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 991.98px) {
-    .timeline-wrapper::before {
-        left: 30px;
-    }
-    
-    .timeline-item.left .timeline-panel,
-    .timeline-item.right .timeline-panel {
-        width: calc(100% - 60px);
-        float: right;
-        margin-left: 60px;
-        margin-right: 0;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .timeline-item.left .timeline-panel,
-    .timeline-item.right .timeline-panel {
-        width: calc(100% - 50px);
-        margin-left: 50px;
-    }
 }
