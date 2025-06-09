@@ -75,6 +75,7 @@ class ProjectAdmin(AssociationAdminMixin, admin.ModelAdmin):
         'source_url',
         'start_date',
         'end_date',
+        'is_current',
         'ownership',
         'topic1',
         'topic2',
