@@ -64,15 +64,13 @@ class ProjectCategory(BaseModel):
     def __str__(self) -> str:
         return self.name
 
-class Project(BaseModel, AssociationMixin):
+class Project(BaseModel, AssociationMixin, TimelineMixin):
     name = models.CharField(max_length=255, null=False)
     description = models.TextField(null=False)
     technology = models.CharField(max_length=100, null=False)
     tools = models.CharField(max_length=100, null=False)
     live_url = models.URLField(null=True, blank=True)
     source_url = models.URLField(null=True, blank=True)
-    start_date = models.DateField(null=False)
-    end_date = models.DateField(null=True, blank=True)
     ownership = models.ForeignKey(
         ProjectCategory, on_delete=models.RESTRICT, null=True, blank=True, related_name="fk_master_data_ownership")
     topic1 = models.ForeignKey(ProjectCategory, on_delete=models.RESTRICT,

@@ -64,8 +64,8 @@ def index(request):
         })
     data["masters"] = masters
 
-    # get projects with their associations
-    projects = models.Project.objects.all()
+    # get projects with their associations - sort by is_current (desc) and start_date (desc)
+    projects = models.Project.objects.order_by('-is_current', '-start_date')
     data["projects"] = projects
 
     return render(request, "index.html", data)
