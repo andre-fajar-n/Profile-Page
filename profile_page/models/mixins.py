@@ -50,7 +50,9 @@ class TimelineMixin(models.Model):
         ordering = ['-is_current', '-end_date', '-start_date']
     
     def save(self, *args, **kwargs):
-        # Automatically set is_current if end_date is None
+        # Automatically set is_current based on end_date
         if self.end_date is None:
             self.is_current = True
+        else:
+            self.is_current = False
         super().save(*args, **kwargs)
