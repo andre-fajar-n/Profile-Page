@@ -11,17 +11,18 @@ class ExperienceAdmin(admin.ModelAdmin):
         'position',
         'company',
         'location',
+        'work_arrangement',
         'is_current',
         'start_date',
         'end_date',
         'created_at',
         'updated_at',
     )
-    list_filter = ('is_current', 'company')
+    list_filter = ('is_current', 'company', 'work_arrangement')
     search_fields = ('position', 'company', 'description', 'location')
     fieldsets = (
         ('Job Information', {
-            'fields': ('position', 'company', 'company_site', 'company_logo', 'location')
+            'fields': ('position', 'company', 'company_site', 'company_logo', 'location', 'work_arrangement')
         }),
         ('Timeline', {
             'fields': ('start_date', 'end_date', 'is_current')

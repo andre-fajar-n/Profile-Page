@@ -27,12 +27,25 @@ class Skill(BaseModel):
         return self.name
 
 class Experience(BaseModel, TimelineMixin):
+    WORKING_TYPE_CHOICES = [
+        ('remote', 'Remote'),
+        ('onsite', 'Onsite'),
+        ('hybrid', 'Hybrid'),
+    ]
+    
     position = models.CharField(max_length=50, null=False)
     company = models.CharField(max_length=50, null=False)
     company_site = models.URLField(null=True, blank=True)
     company_logo = models.URLField(null=True, blank=True, help_text="URL to company logo image")
     description = models.TextField(null=False)
     location = models.CharField(max_length=100, null=True, blank=True, help_text="Job location (e.g., 'Remote', 'New York, NY')")
+    work_arrangement = models.CharField(
+        max_length=20, 
+        choices=WORKING_TYPE_CHOICES,
+        null=True, 
+        blank=True,
+        help_text="Type of work arrangement (Remote, Onsite, or Hybrid)"
+    )
     
     def __str__(self) -> str:
         return self.position + ", " + self.company

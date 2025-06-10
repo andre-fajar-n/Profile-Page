@@ -60,6 +60,20 @@
     margin-top: 3px;
 }
 
+/* Add badge styling for work arrangement */
+.timeline-date .badge {
+    font-size: 0.7rem;
+    padding: 0.25em 0.5em;
+    font-weight: 500;
+    vertical-align: middle;
+    border-radius: 4px;
+}
+
+.timeline-date .badge.bg-light {
+    background-color: rgba(67, 97, 238, 0.1) !important;
+    color: var(--primary) !important;
+}
+
 /* Timeline content */
 .timeline-body {
     padding: 20px;

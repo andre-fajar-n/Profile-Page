@@ -15,7 +15,15 @@
                             <div class="timeline-head">
                                 <div class="timeline-date">
                                     <span>{{experience.start_date|date:"F Y"}} - {% if experience.end_date %}{{experience.end_date|date:"F Y"}}{% else %}Present{% endif %}</span>
-                                    <small>{% if experience.location %}{{experience.location}} • {% endif %}{{experience.start_date|timesince:experience.end_date|default:"Ongoing"}}</small>
+                                    <small>
+                                        {% if experience.location %}{{experience.location}}{% endif %}
+                                        {% if experience.location and experience.work_arrangement %} • {% endif %}
+                                        {% if experience.work_arrangement %}
+                                            <span class="badge bg-light text-dark">{{experience.get_work_arrangement_display}}</span>
+                                        {% endif %}
+                                        {% if experience.location or experience.work_arrangement %} • {% endif %}
+                                        {{experience.start_date|timesince:experience.end_date|default:"Ongoing"}}
+                                    </small>
                                 </div>
                             </div>
                             <div class="timeline-body">
